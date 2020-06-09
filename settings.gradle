@@ -1,2 +1,4 @@
 rootProject.name='Rtt_Express_App'
 include ':app'
+include ':domain'
+include ':data'
