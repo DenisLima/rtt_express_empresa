@@ -1,15 +1,14 @@
 package com.android.domain.di
 
 import com.android.domain.usecases.GetJobsUseCases
-import io.reactivex.schedulers.Schedulers
-import org.koin.dsl.module.module
+import com.android.domain.usecases.GetJobsUseCasesImpl
+import org.koin.dsl.module
 
 val useCaseModule = module {
 
-    factory {
-        GetJobsUseCases(
-            repository = get(),
-            scheduler = Schedulers.io()
+    factory<GetJobsUseCases> {
+        GetJobsUseCasesImpl(
+            repository = get()
         )
     }
 }
