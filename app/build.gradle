@@ -1,37 +1,86 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../buildsystem/version.gradle'
+apply from: '../buildsystem/information.gradle'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.3"
+
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.android.rtt_express_app"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        multiDexEnabled true
+
+        buildConfigField "String", "API_URL", '\"teste\"'
+
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled = project.hasProperty('isDevBuild')
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            dimension dimensions.env
+        }
+        homol {
+            dimension dimensions.env
+        }
+        mock {
+            dimension dimensions.env
         }
     }
 
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation dependencies.appCompact
+    implementation dependencies.constraintlayout
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.espresso
+
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+
+    implementation dependencies.kotlin
+
+    implementation dependencies.ktx
+
+    implementation dependencies.viewModel
+
+    implementation dependencies.lifeCycle
+
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+
+
+    kapt dependencies.dataBinding
+
 }

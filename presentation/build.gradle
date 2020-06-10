@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../buildsystem/version.gradle'
+apply from: '../buildsystem/information.gradle'
+
+android {
+    compileSdkVersion app.compileSdkVersion
+
+    defaultConfig {
+        applicationId APPLICATION_ID
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+        }
+    }
+
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            applicationIdSuffix ".prod"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
+        }
+        homol {
+            applicationIdSuffix ".hom"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
+        }
+        mock {
+            applicationIdSuffix ".mock"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':data')
+
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependecies
+
+    implementation dependencies.appCompact
+    implementation dependencies.constraintlayout
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.runner
+    androidTestImplementation testDependencies.espresso
+
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+
+    implementation dependencies.kotlin
+
+    implementation dependencies.ktx
+
+    implementation dependencies.viewModel
+
+    implementation dependencies.lifeCycle
+
+    implementation dependencies.koin
+    implementation dependencies.koinViewModel
+
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+
+
+    kapt dependencies.dataBinding
+}

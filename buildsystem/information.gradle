@@ -1,0 +1,18 @@
+ext {
+    APPLICATION_ID = 'com.android.rtt_express_app.data'
+
+    dimensions = [
+            env    : "env",
+            product: "product"
+    ]
+
+    app = [
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+            compileSdkVersion: 29
+    ]
+
+    API_URL_PROD = '\"https://polar-reef-45609.herokuapp.com\"'
+    API_URL_HOMOL = '\"https://polar-reef-45609.herokuapp.com\"'
+    API_URL_MOCK = '\"http://demo2078023.mockable.io\"'
+}

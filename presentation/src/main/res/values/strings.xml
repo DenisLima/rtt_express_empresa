@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">presentation</string>
+    <string name="try_again">Tente novamente</string>
+    <string name="show_list">Mostrar Lista</string>
+    <string name="out">Sair</string>
+</resources>
