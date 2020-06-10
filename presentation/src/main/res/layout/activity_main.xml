@@ -8,7 +8,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.android.presentation.features.main.MainViewModel" />
+            type="com.android.presentation.features.jobslist.main.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

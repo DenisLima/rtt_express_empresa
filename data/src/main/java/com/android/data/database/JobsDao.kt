@@ -4,8 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
-import com.android.data.models.AndroidJobCache
-import io.reactivex.Single
+import com.android.data.features.jobslist.models.AndroidJobCache
 import kotlinx.coroutines.flow.Flow
 
 @Dao

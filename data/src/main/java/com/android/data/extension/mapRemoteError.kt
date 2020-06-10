@@ -1,6 +1,6 @@
 package com.android.data.extension
 
-import com.android.domain.response.ResultRemote
+import com.android.domain.features.jobslist.response.ResultRemote
 import retrofit2.HttpException
 
 fun Throwable.mapRemoteErrors(): ResultRemote.ErrorResponse {

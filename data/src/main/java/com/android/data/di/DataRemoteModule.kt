@@ -1,11 +1,11 @@
 package com.android.data.di
 
-import com.android.data.R
-import com.android.data.api.ServerApi
-import com.android.data.source.RemoteDataSource
-import com.android.data.source.RemoteDataSourceImpl
+
+import com.android.data.features.jobslist.api.ServerApi
+import com.android.data.features.jobslist.source.RemoteDataSource
+import com.android.data.features.jobslist.source.RemoteDataSourceImpl
 import okhttp3.OkHttpClient
-import org.koin.android.ext.koin.androidContext
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -16,7 +16,7 @@ val remoteDataSourceModule = module {
     factory { providesOkHttpClient() }
     single { createWebService<ServerApi>(
         okHttpClient = get(),
-        url =  androidContext().getString(R.string.base_url)
+        url = get(named(KOIN_WEB_API_URL))
     ) }
 
     factory<RemoteDataSource> { RemoteDataSourceImpl(serverApi = get()) }

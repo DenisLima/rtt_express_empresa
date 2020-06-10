@@ -3,17 +3,21 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply from: '../buildsystem/version.gradle'
+apply from: '../buildsystem/information.gradle'
+
 android {
-    compileSdkVersion 29
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.android.presentation"
-        minSdkVersion 21
-        targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        applicationId APPLICATION_ID
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        versionCode appVersionCode
+        versionName appVersionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     dataBinding {
@@ -24,6 +28,29 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+
+        }
+    }
+
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            applicationIdSuffix ".prod"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
+        }
+        homol {
+            applicationIdSuffix ".hom"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
+        }
+        mock {
+            applicationIdSuffix ".mock"
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", '\"teste\"'
         }
     }
 

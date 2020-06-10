@@ -1,5 +1,49 @@
-apply plugin: 'kotlin'
-apply plugin: 'java-library'
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../buildsystem/information.gradle'
+
+android {
+
+    compileSdkVersion app.compileSdkVersion
+
+    defaultConfig {
+
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        multiDexEnabled true
+
+        buildConfigField "String", "APP_ID", "\"$APPLICATION_ID\""
+    }
+
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            dimension dimensions.env
+        }
+        homol {
+            dimension dimensions.env
+        }
+        mock {
+            dimension dimensions.env
+        }
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled = project.hasProperty('isDevBuild')
+        }
+
+        release {
+            minifyEnabled true
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+}
 
 dependencies {
 
@@ -13,6 +57,3 @@ dependencies {
     implementation dependencies.coroutinesAndroid
 
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8

@@ -3,30 +3,52 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+apply from: '../buildsystem/version.gradle'
+apply from: '../buildsystem/information.gradle'
+
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
-    compileSdkVersion globalConfiguration["compileSDK"]
+
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
-        applicationId "com.android.rtt_express_app"
-        minSdkVersion globalConfiguration["minSDK"]
-        targetSdkVersion globalConfiguration["targetSDK"]
-        versionCode 1
-        versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        multiDexEnabled true
+
+        buildConfigField "String", "API_URL", '\"teste\"'
+
     }
 
     buildTypes {
+        debug {
+            testCoverageEnabled = project.hasProperty('isDevBuild')
+        }
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled true
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            dimension dimensions.env
+        }
+        homol {
+            dimension dimensions.env
+        }
+        mock {
+            dimension dimensions.env
         }
     }
 
 }
 
 dependencies {
+
     implementation project(path: ':domain')
     implementation project(path: ':data')
 
@@ -58,7 +80,7 @@ dependencies {
     implementation dependencies.rxKotlin
     implementation dependencies.rxAndroid
 
-    implementation dependencies.coroutinesCore
-    implementation dependencies.coroutinesAndroid
-    implementation dependencies.material
+
+    kapt dependencies.dataBinding
+
 }

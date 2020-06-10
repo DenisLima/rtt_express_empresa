@@ -2,24 +2,46 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
+apply from: '../buildsystem/information.gradle'
+
 android {
-    def globalConfiguration = rootProject.extensions.getByName("ext")
-    compileSdkVersion globalConfiguration["compileSDK"]
+
+    compileSdkVersion app.compileSdkVersion
 
     defaultConfig {
 
-        minSdkVersion globalConfiguration["minSDK"]
-        targetSdkVersion globalConfiguration["targetSDK"]
+        minSdkVersion app.minSdkVersion
+        targetSdkVersion app.targetSdkVersion
+        multiDexEnabled true
 
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    buildTypes {
+        debug {
+            testCoverageEnabled = project.hasProperty('isDevBuild')
+        }
+
+        release {
+            minifyEnabled true
+            consumerProguardFiles 'proguard-rules.pro'
+        }
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
+    flavorDimensions dimensions.env
+
+    productFlavors {
+        prod{
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", API_URL_HOMOL
+        }
+        homol {
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", API_URL_HOMOL
+        }
+        mock {
+            dimension dimensions.env
+            buildConfigField "String", "API_URL", API_URL_MOCK
+        }
     }
 
 }

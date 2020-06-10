@@ -1,9 +1,8 @@
 package com.android.presentation.di
 
-import com.android.presentation.features.list.AndroidJobListViewModel
-import com.android.presentation.features.list.AndroidJobsAdapter
-import com.android.presentation.features.main.MainViewModel
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.android.presentation.features.jobslist.list.AndroidJobListViewModel
+import com.android.presentation.features.jobslist.list.AndroidJobsAdapter
+import com.android.presentation.features.jobslist.main.MainViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
