@@ -3,4 +3,13 @@
     <string name="try_again">Tente novamente</string>
     <string name="show_list">Mostrar Lista</string>
     <string name="out">Sair</string>
+
+    <!--Login -->
+    <string name="login_email_login">E-mail</string>
+    <string name="login_email_hint_login">Digite seu E-mail</string>
+    <string name="login_password_login">Senha</string>
+    <string name="login_password_hint_login">********</string>
+    <string name="login_login_button">Login</string>
+    <string name="login_account_name">Cadastra-se</string>
+    <string name="login_remember_my_password">Esqueci a senha</string>
 </resources>

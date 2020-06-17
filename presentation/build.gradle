@@ -88,6 +88,8 @@ dependencies {
     implementation dependencies.rxKotlin
     implementation dependencies.rxAndroid
 
+    implementation dependencies.material
+
 
     kapt dependencies.dataBinding
 }

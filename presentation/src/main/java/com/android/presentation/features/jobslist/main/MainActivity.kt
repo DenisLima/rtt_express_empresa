@@ -7,17 +7,19 @@ import com.android.presentation.R
 import com.android.presentation.databinding.ActivityMainBinding
 import com.android.presentation.features.general.BaseActivity
 import com.android.presentation.features.jobslist.list.AndroidJobsListActivity
+import com.android.presentation.features.splash.SplashViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity: BaseActivity() {
+
     private val viewModel by viewModel<MainViewModel>()
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.viewModel = viewModel
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
+        binding.viewModel = MainViewModel()
         binding.lifecycleOwner = this
 
         setupViewModel()
@@ -37,4 +39,6 @@ class MainActivity: BaseActivity() {
         })
 
     }
+
+
 }
