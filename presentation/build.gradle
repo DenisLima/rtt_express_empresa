@@ -92,4 +92,5 @@ dependencies {
 
 
     kapt dependencies.dataBinding
+    implementation 'com.google.android.material:material:1.0.0'
 }
