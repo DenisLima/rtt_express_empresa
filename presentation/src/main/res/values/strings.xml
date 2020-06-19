@@ -3,4 +3,11 @@
     <string name="try_again">Tente novamente</string>
     <string name="show_list">Mostrar Lista</string>
     <string name="out">Sair</string>
+
+    <!--Login Register-->
+    <string name="login_register_toolbar_title">Cadastro de Usuário</string>
+    <string name="login_register_hint_name">Nome</string>
+    <string name="login_register_hint_email">E-mail</string>
+    <string name="login_register_hint_password">Senha</string>
+    <string name="login_register_hint_confirmpassword">Confirmar Senha</string>
 </resources>
