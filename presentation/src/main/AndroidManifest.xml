@@ -10,14 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".App">
-        <activity android:name=".PresentationActivity"/>
 
-        <activity android:name="com.android.presentation.features.jobslist.main.MainActivity">
+        <activity android:name=".features.generalregister.GeneralRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name="com.android.presentation.features.jobslist.main.MainActivity">
+
         </activity>
 
         <activity android:name="com.android.presentation.features.jobslist.list.AndroidJobsListActivity"
