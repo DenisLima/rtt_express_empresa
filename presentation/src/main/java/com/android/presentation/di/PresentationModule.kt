@@ -3,6 +3,7 @@ package com.android.presentation.di
 import com.android.presentation.features.jobslist.list.AndroidJobListViewModel
 import com.android.presentation.features.jobslist.list.AndroidJobsAdapter
 import com.android.presentation.features.jobslist.main.MainViewModel
+import com.android.presentation.login.LoginViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -16,4 +17,6 @@ val presentationModule = module {
         jobsUseCase = get()
     )
     }
+
+    viewModel { LoginViewModel(get()) }
 }
