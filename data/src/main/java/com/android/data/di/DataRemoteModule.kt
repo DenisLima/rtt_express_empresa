@@ -4,6 +4,7 @@ package com.android.data.di
 import com.android.data.features.jobslist.api.ServerApi
 import com.android.data.features.jobslist.source.RemoteDataSource
 import com.android.data.features.jobslist.source.RemoteDataSourceImpl
+import com.android.data.features.loginregister.api.LoginRegisterDataSource
 import okhttp3.OkHttpClient
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -14,12 +15,20 @@ import java.util.concurrent.TimeUnit
 
 val remoteDataSourceModule = module {
     factory { providesOkHttpClient() }
+
     single { createWebService<ServerApi>(
         okHttpClient = get(),
         url = get(named(KOIN_WEB_API_URL))
     ) }
 
     factory<RemoteDataSource> { RemoteDataSourceImpl(serverApi = get()) }
+
+    single {
+        createWebService<LoginRegisterDataSource>(
+            okHttpClient = get(),
+            url = get(named(KOIN_WEB_API_URL))
+        )
+    }
 }
 
 fun providesOkHttpClient(): OkHttpClient {
