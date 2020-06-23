@@ -15,9 +15,7 @@ val useCaseModule = module {
     }
 
     factory<LoginRegisterUseCases> {
-        LoginRegisterUseCasesImpl(
-            loginRegisterRepository = get()
-        )
+        LoginRegisterUseCasesImpl(get())
     }
 }
 

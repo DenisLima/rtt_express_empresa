@@ -10,10 +10,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginRegisterActivity: BaseActivity() {
     private lateinit var binding: ActivityLoginRegisterBinding
     private val viewModel: LoginRegisterViewModel by viewModel()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=DataBindingUtil.setContentView(this,R.layout.activity_login_register)
-        binding.viewModel = viewModel
+        binding.viewModel=viewModel
     }
 }

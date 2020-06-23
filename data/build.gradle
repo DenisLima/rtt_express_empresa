@@ -68,4 +68,5 @@ dependencies {
     implementation dependencies.coroutinesCore
     implementation dependencies.coroutinesAndroid
     implementation dependencies.roomKtx
+    implementation dependencies.okHttp
 }

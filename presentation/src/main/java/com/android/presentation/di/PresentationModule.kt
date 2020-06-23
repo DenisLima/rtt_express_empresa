@@ -18,5 +18,6 @@ val presentationModule = module {
     )
     }
 
+    //Login Register
     viewModel { LoginRegisterViewModel(get()) }
 }
