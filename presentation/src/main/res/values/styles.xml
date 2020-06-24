@@ -10,4 +10,10 @@
 
     <style name="AppThemeNoAction" parent="Theme.AppCompat.Light.NoActionBar"/>
 
+    <style name="ButtonPrimary" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>
