@@ -8,8 +8,18 @@ import com.android.domain.features.loginregister.ro.LoginRegisterResultObject
 
 class LoginRegisterRepositoryImpl(private val loginRegisterDataSource: LoginRegisterDataSource) :
     LoginRegisterRepository {
-    override suspend fun userRegister(email: String, password: String): LoginRegisterResultObject()
-    {
-        return loginRegisterDataSource.register(LoginRegisterModel(email, password))
+    override suspend fun userRegister(email: String, password: String): LoginRegisterResultObject {
+
+        var loginRegisterResultObject = LoginRegisterResultObject()
+
+        loginRegisterDataSource.register(LoginRegisterModel(email, password)).let {
+            loginRegisterResultObject!!.id = it.id
+            loginRegisterResultObject!!.email = it.email
+            loginRegisterResultObject!!.fullName = it.fullName
+            loginRegisterResultObject!!.password = it.password
+            loginRegisterResultObject!!.isAcceptedTerm = it.isAcceptedTerm
+        }
+
+        return loginRegisterResultObject!!
     }
 }

@@ -11,7 +11,7 @@ import com.android.presentation.R
 import com.android.presentation.databinding.ActivityAndroidJobsListBinding
 import com.android.presentation.extensions.hide
 import com.android.presentation.extensions.show
-import com.android.presentation.features.general.BaseActivity
+import com.android.presentation.features.general.bases.BaseActivity
 import com.android.presentation.utils.exhaustive
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

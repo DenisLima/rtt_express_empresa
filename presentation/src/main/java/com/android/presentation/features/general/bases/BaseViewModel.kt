@@ -1,4 +1,4 @@
-package com.android.presentation.features.general
+package com.android.presentation.features.general.bases
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

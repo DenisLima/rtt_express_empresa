@@ -4,6 +4,9 @@
     <string name="show_list">Mostrar Lista</string>
     <string name="out">Sair</string>
 
+    <!-- General -->
+    <string name="general_loading">Carregando...</string>
+
     <!--Login Register-->
     <string name="login_register_toolbar_title">Cadastro de Usuário</string>
     <string name="login_register_hint_name">Nome</string>
