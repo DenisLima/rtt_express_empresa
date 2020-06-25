@@ -10,4 +10,8 @@
     <string name="login_login_button">Login</string>
     <string name="login_account_name">Cadastra-se</string>
     <string name="login_remember_my_password">Esqueci a senha</string>
+
+    <!-- General -->
+    <string name="general_loading">Carregando...</string>
+
 </resources>

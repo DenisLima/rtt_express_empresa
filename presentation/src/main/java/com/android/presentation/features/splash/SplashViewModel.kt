@@ -1,7 +1,7 @@
 package com.android.presentation.features.splash
 
 import androidx.lifecycle.MutableLiveData
-import com.android.presentation.features.general.BaseViewModel
+import com.android.presentation.features.general.bases.BaseViewModel
 
 class SplashViewModel: BaseViewModel() {
     val showAndroidJobsLiveData = MutableLiveData<Boolean>()

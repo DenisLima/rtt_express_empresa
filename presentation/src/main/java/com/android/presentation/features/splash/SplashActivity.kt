@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Handler
 import com.android.presentation.R
 import com.android.presentation.databinding.ActivityMainBinding
-import com.android.presentation.features.general.BaseActivity
+import com.android.presentation.features.general.bases.BaseActivity
 import com.android.presentation.login.LoginActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

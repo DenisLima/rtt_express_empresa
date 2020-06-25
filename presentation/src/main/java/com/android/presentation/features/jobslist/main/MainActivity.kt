@@ -5,9 +5,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.android.presentation.R
 import com.android.presentation.databinding.ActivityMainBinding
-import com.android.presentation.features.general.BaseActivity
+import com.android.presentation.features.general.bases.BaseActivity
 import com.android.presentation.features.jobslist.list.AndroidJobsListActivity
-import com.android.presentation.features.splash.SplashViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity: BaseActivity() {
