@@ -15,4 +15,13 @@
     <string name="login_register_hint_confirmpassword">Confirmar Senha</string>
     <string name="login_register_hint_use_terms">Termos de Uso</string>
     <string name="login_register_hint_btn_register">Cadastrar</string>
+
+    <!--Login -->
+    <string name="login_email_hint_login">Digite seu e-mail</string>
+    <string name="login_password_login">Digite sua senha</string>
+    <string name="login_login_button">Login</string>
+    <string name="login_account_name">Cadastra-se</string>
+    <string name="login_remember_my_password">Esqueci a senha</string>
+
+
 </resources>
