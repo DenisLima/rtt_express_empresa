@@ -15,7 +15,7 @@
 
         <activity android:name="com.android.presentation.features.jobslist.main.MainActivity"/>
 
-        <activity android:name="com.android.presentation.features.loginregister.LoginRegisterActivity">
+        <activity android:name="com.android.presentation.features.loginregister.LoginRegisterActivity"/>
         <activity android:name="com.android.presentation.features.jobslist.list.AndroidJobsListActivity"
             android:theme="@style/AppThemeNoAction"/>
 
@@ -28,9 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.android.presentation.features.jobslist.list.AndroidJobsListActivity"
-            android:theme="@style/AppThemeNoAction"/>
 
     </application>
 
