@@ -1,7 +1,7 @@
 package com.android.domain.login
 
-import com.android.domain.login.models.User
+import com.android.domain.login.ro.LoginResultObject
 
 interface LoginUseCases {
-   suspend fun login(email: String, password: String): User
+   suspend fun login(email: String, password: String): LoginResultObject
 }

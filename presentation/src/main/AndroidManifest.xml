@@ -8,13 +8,14 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppThemeNoAction"
         android:name=".App">
         <activity android:name="com.android.presentation.login.LoginActivity"
             android:theme="@style/AppThemeNoAction"/>
 
         <activity android:name="com.android.presentation.features.jobslist.main.MainActivity"/>
 
+        <activity android:name="com.android.presentation.features.loginregister.LoginRegisterActivity"/>
         <activity android:name="com.android.presentation.features.jobslist.list.AndroidJobsListActivity"
             android:theme="@style/AppThemeNoAction"/>
 
@@ -26,7 +27,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
     </application>

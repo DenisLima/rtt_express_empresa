@@ -5,12 +5,7 @@ import com.android.presentation.features.general.dialogs.LoadingDialog
 
 open class BaseActivity: AppCompatActivity() {
 
-
-    private val loadingDialog by lazy {
-        LoadingDialog(
-            this
-        )
-    }
+    private val loadingDialog by lazy { LoadingDialog(this) }
 
     open fun showLoading() {
         loadingDialog.show()

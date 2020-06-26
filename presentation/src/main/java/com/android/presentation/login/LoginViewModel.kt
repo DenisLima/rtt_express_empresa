@@ -1,5 +1,6 @@
 package com.android.presentation.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -7,6 +8,7 @@ import com.android.domain.login.LoginUseCases
 import com.android.presentation.features.general.bases.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.Exception
 
 class LoginViewModel(private val loginUseCases: LoginUseCases): BaseViewModel() {
 
@@ -18,8 +20,11 @@ class LoginViewModel(private val loginUseCases: LoginUseCases): BaseViewModel() 
 
     private fun checkLogin(email: String, password: String){
     viewModelScope.launch(Dispatchers.IO){
-        loginUseCases.login(email,password)
-
+        try {
+            loginUseCases.login(email, password)
+        } catch (e: Exception) {
+            Log.e("ERROR", e.message)
+        }
     }
     }
 
