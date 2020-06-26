@@ -41,6 +41,11 @@ class LoginRegisterActivity: BaseActivity() {
                 Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
             }
 
+        viewModel.getUserName()
+            .observeOn(this) { text ->
+                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+            }
+
     }
 
 }

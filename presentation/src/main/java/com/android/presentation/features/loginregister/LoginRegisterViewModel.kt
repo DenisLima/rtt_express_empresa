@@ -20,6 +20,9 @@ class LoginRegisterViewModel(
     private val isLoadingLv = MutableLiveData<Boolean>()
     fun isLoading(): LiveData<Boolean> = isLoadingLv
 
+    private val userNameLv = MutableLiveData<String>()
+    fun getUserName(): LiveData<String> = userNameLv
+
     fun onRegister() {
         isLoadingLv.postValue(true)
 
@@ -36,5 +39,9 @@ class LoginRegisterViewModel(
             }
 
         }
+    }
+
+    fun afterNameChange(s: CharSequence) {
+        userNameLv.value = s.toString()
     }
 }

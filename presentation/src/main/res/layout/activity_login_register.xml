@@ -50,7 +50,8 @@
             android:fontFamily="@font/montserrat_regular"
             android:hint="@string/login_register_hint_name"
             android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="@color/colorPrimaryDark" />
+            android:textColorHint="@color/colorPrimaryDark"
+            android:afterTextChanged="@{(editable) -> viewModel.afterNameChange(editable)}"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
