@@ -22,6 +22,10 @@
         <activity android:name=".features.splash.SplashActivity"
             android:theme="@style/AppThemeNoAction">
 
+            
+        </activity>
+        
+        <activity android:name=".features.generalregister.GeneralRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
