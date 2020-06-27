@@ -145,8 +145,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/button_rounded_primary"
         style="@style/ButtonPrimary"
-        android:onClick="@{() -> viewModel.onRegister()}"
-        />
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

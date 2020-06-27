@@ -5,6 +5,7 @@ import com.android.data.features.jobslist.api.ServerApi
 import com.android.data.features.jobslist.source.RemoteDataSource
 import com.android.data.features.jobslist.source.RemoteDataSourceImpl
 import com.android.data.features.loginregister.api.LoginRegisterDataSource
+import com.android.data.login.api.LoginDataSource
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
@@ -28,6 +29,14 @@ val remoteDataSourceModule = module {
     //Login Register
     single {
         createWebService<LoginRegisterDataSource>(
+            okHttpClient = get(),
+            url = get(named(KOIN_WEB_API_URL))
+        )
+    }
+
+    //Login
+    single {
+        createWebService<LoginDataSource>(
             okHttpClient = get(),
             url = get(named(KOIN_WEB_API_URL))
         )
