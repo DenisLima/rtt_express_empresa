@@ -90,6 +90,9 @@ dependencies {
     implementation dependencies.rxAndroid
     implementation dependencies.material
 
+    implementation dependencies.material
+
 
     kapt dependencies.dataBinding
+
 }
