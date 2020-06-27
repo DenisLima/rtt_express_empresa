@@ -1,9 +1,9 @@
-package com.android.presentation.features.jobslist.main
+package com.android.presentation.features.splash
 
 import androidx.lifecycle.MutableLiveData
 import com.android.presentation.features.general.bases.BaseViewModel
 
-class MainViewModel: BaseViewModel() {
+class SplashViewModel: BaseViewModel() {
     val showAndroidJobsLiveData = MutableLiveData<Boolean>()
     val outAppLiveData = MutableLiveData<Boolean>()
 

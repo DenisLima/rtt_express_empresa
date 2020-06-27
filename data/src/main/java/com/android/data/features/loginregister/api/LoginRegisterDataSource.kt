@@ -11,6 +11,5 @@ interface LoginRegisterDataSource {
     @POST("/signup")
     suspend fun register(
         @Body loginRegister: LoginRegisterModel
-
     ): LoginRegisterResponseObject
 }
