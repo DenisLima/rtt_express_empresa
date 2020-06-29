@@ -1,5 +1,7 @@
 package com.android.domain.features.generalregister
 
+import io.reactivex.Single
+
 interface GeneralRegisterUseCases {
     suspend fun registerGeneral(
         razaoSocial: String,
@@ -16,4 +18,6 @@ interface GeneralRegisterUseCases {
         responsavelLegal: String,
         site: String
     ): Boolean
+
+    fun putToken(token: String): Single<Boolean>
 }

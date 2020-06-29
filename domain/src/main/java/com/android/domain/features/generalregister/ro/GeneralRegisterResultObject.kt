@@ -12,8 +12,6 @@ data class GeneralRegisterResultObject (
     var cidade: String,
     var uf: String,
     var cep: String,
-    var responsavelLegal: String
+    var responsavelLegal: String,
     var site: String
-
-
 )

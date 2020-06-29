@@ -1,11 +1,16 @@
 package com.android.data.features.generalregister
 
 import com.android.data.features.generalregister.api.GeneralRegisterDataSource
-import com.android.data.features.models.GeneralRegisterRequest
+import com.android.data.features.generalregister.models.GeneralRegisterRequest
+import com.android.data.session.SessionLocalSource
 import com.android.domain.features.generalregister.GeneralRegisterRepository
+import io.reactivex.Completable
+import io.reactivex.Single
 
-
-class GeneralRegisterRepositoryImpl(private val generalRegisterDataSource: GeneralRegisterDataSource) :
+class GeneralRegisterRepositoryImpl(
+    private val generalRegisterDataSource: GeneralRegisterDataSource,
+    private val sessionLocalSource: SessionLocalSource
+) :
     GeneralRegisterRepository {
     override suspend fun registerGeneral(
         razaoSocial: String,
@@ -40,5 +45,10 @@ class GeneralRegisterRepositoryImpl(private val generalRegisterDataSource: Gener
                 site
             )
         )
+    }
+
+    override fun putToken(token: String): Single<Boolean> {
+        sessionLocalSource.savedLoggedUser(token)
+        return Single.just(true)
     }
 }

@@ -1,5 +1,7 @@
 package com.android.domain.features.generalregister
 
+import io.reactivex.Single
+
 class GeneralRegisterUseCasesImpl(private val generalRegisterRepository: GeneralRegisterRepository) :
     GeneralRegisterUseCases {
     override suspend fun registerGeneral(
@@ -31,8 +33,10 @@ class GeneralRegisterUseCasesImpl(private val generalRegisterRepository: General
             cep,
             responsavelLegal,
             site
-
         )
     }
 
+    override fun putToken(token: String): Single<Boolean> {
+        return generalRegisterRepository.putToken(token)
+    }
 }

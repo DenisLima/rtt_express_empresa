@@ -1,4 +1,4 @@
-package com.android.data.features.models
+package com.android.data.features.generalregister.models
 
 data class GeneralRegisterRequest (
     val razaoSocial: String,

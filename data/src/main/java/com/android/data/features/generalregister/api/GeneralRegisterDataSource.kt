@@ -1,6 +1,6 @@
 package com.android.data.features.generalregister.api
 
-import com.android.data.features.models.GeneralRegisterRequest
+import com.android.data.features.generalregister.models.GeneralRegisterRequest
 import retrofit2.http.Body
 import retrofit2.http.POST
 

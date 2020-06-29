@@ -1,5 +1,7 @@
 package com.android.domain.features.generalregister
 
+import io.reactivex.Single
+
 interface GeneralRegisterRepository {
     suspend fun registerGeneral(
         razaoSocial: String,
@@ -15,5 +17,7 @@ interface GeneralRegisterRepository {
         cep: String,
         responsavelLegal: String,
         site: String
-    ):Boolean
+    ): Boolean
+
+    fun putToken(token: String): Single<Boolean>
 }

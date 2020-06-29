@@ -20,10 +20,7 @@
             android:theme="@style/AppThemeNoAction"/>
 
         <activity android:name=".features.splash.SplashActivity"
-            android:theme="@style/AppThemeNoAction">
-
-            
-        </activity>
+            android:theme="@style/AppThemeNoAction"/>
         
         <activity android:name=".features.generalregister.GeneralRegisterActivity">
             <intent-filter>
