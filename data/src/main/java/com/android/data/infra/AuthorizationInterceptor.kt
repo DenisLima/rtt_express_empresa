@@ -1,8 +1,14 @@
 package com.android.data.infra
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.Response
+
+val pref= SharedPreferences().getSharedPreferences(Context.MODE_PRIVATE)
+
+val editor = pref.edit()
 
 class AuthorizationInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -11,6 +17,8 @@ class AuthorizationInterceptor: Interceptor {
 
         if (mainResponse.code == 200) {
             //Salvar o token na SharedPreferences
+            editor.putString("token",token)
+            editor.commit()
             Log.e("HEADERS", token)
         }
 
