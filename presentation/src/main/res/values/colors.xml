@@ -10,4 +10,7 @@
     <!-- Escala de preto -->
     <color name="black_alpha50">#7b000000</color>
 
+    <!-- Escala de vermelho -->
+    <color name="red_light">#FCC7C7</color>
+
 </resources>

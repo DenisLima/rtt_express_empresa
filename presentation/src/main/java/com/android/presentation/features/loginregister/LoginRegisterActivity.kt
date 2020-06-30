@@ -27,6 +27,9 @@ class LoginRegisterActivity : BaseActivity() {
 
     fun initComponents() {
 
+        cbTermsUse.setOnClickListener {
+            viewModel.setTermAccepted(cbTermsUse.isChecked)
+        }
 
         btnRegister.setOnClickListener {
             viewModel.loginRegisterModel(
@@ -55,9 +58,9 @@ class LoginRegisterActivity : BaseActivity() {
                 Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
             }
 
-        viewModel.getUserName()
-            .observeOn(this) { text ->
-                Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+        viewModel.getEnableButton()
+            .observeOn(this) {
+                btnRegister.isEnabled = it
             }
 
     }

@@ -46,6 +46,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/teNameLoginRegister"
             android:layout_width="match_parent"
+            android:imeOptions="actionNext"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
             android:hint="@string/login_register_hint_name"
@@ -69,8 +70,10 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/teEmailRegister"
             android:layout_width="match_parent"
+            android:imeOptions="actionNext"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
+            android:afterTextChanged="@{(editable) -> viewModel.afterEmailChange(editable)}"
             android:hint="@string/login_register_hint_email" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -81,6 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
+        app:passwordToggleEnabled="true"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,8 +93,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tePasswordRegister"
             android:layout_width="match_parent"
+            android:inputType="textPassword"
+            android:imeOptions="actionNext"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
+            android:afterTextChanged="@{(editable) -> viewModel.afterPasswordChange(editable)}"
             android:hint="@string/login_register_hint_password" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,6 +109,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tiPasswordRegister">
@@ -110,7 +118,10 @@
             android:id="@+id/teConfirmPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:imeOptions="actionNext"
             android:fontFamily="@font/montserrat_regular"
+            android:afterTextChanged="@{(editable) -> viewModel.afterConfirmPasswordChange(editable)}"
             android:hint="@string/login_register_hint_confirmpassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -143,8 +154,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/button_rounded_primary"
-        style="@style/ButtonPrimary"
+        android:enabled="false"
+        style="@style/AppTheme.Button"
          />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
