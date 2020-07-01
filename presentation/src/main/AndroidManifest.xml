@@ -20,8 +20,9 @@
             android:theme="@style/AppThemeNoAction"/>
 
         <activity android:name=".features.splash.SplashActivity"
-            android:theme="@style/AppThemeNoAction">
-
+            android:theme="@style/AppThemeNoAction"/>
+        
+        <activity android:name=".features.generalregister.GeneralRegisterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

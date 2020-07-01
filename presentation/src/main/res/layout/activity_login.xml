@@ -90,16 +90,18 @@
             android:layout_marginBottom="32dp"
             android:background="@drawable/button_rounded_primary"
             android:fontFamily="@font/montserrat_regular"
-            android:saveEnabled="false"
+
             android:text="@string/login_login_button"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toTopOf="@+id/btnAccountName"
-            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/ButtonPrimary"
+            app:layout_constraintBottom_toTopOf="@+id/tvRegister"
+
+                                                   app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/btnAccountName"
+            android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="64dp"
@@ -107,7 +109,8 @@
             android:gravity="center"
             android:text="@string/login_account_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin" />
+            app:layout_constraintStart_toStartOf="@+id/btnLogin"
+            />
 
         <TextView
             android:id="@+id/btnRememberPassword"

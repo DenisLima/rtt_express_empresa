@@ -1,6 +1,7 @@
 package com.android.data.di
 
 
+import com.android.data.features.generalregister.api.GeneralRegisterDataSource
 import com.android.data.features.jobslist.api.ServerApi
 import com.android.data.features.jobslist.source.RemoteDataSource
 import com.android.data.features.jobslist.source.RemoteDataSourceImpl
@@ -38,6 +39,14 @@ val remoteDataSourceModule = module {
     //Login
     single {
         createWebService<LoginDataSource>(
+            okHttpClient = get(),
+            url = get(named(KOIN_WEB_API_URL))
+        )
+    }
+
+    //General Register
+    single {
+        createWebService<GeneralRegisterDataSource>(
             okHttpClient = get(),
             url = get(named(KOIN_WEB_API_URL))
         )

@@ -69,4 +69,6 @@ dependencies {
     implementation dependencies.coroutinesAndroid
     implementation dependencies.roomKtx
     implementation dependencies.okHttp
+
+    implementation dependencies.sharedPref
 }

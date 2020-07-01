@@ -1,5 +1,6 @@
 package com.android.presentation.di
 
+import com.android.presentation.features.generalregister.GeneralRegisterViewModel
 import com.android.presentation.features.jobslist.list.AndroidJobListViewModel
 import com.android.presentation.features.jobslist.list.AndroidJobsAdapter
 import com.android.presentation.features.jobslist.main.MainViewModel
@@ -22,5 +23,9 @@ val presentationModule = module {
     //Login Register
     viewModel { LoginRegisterViewModel(get()) }
 
+    //Login
     viewModel { LoginViewModel(get()) }
+
+    //General Register
+    viewModel { GeneralRegisterViewModel(get()) }
 }
