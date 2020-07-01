@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class LoginViewModel(private val loginUseCases: LoginUseCases): BaseViewModel() {
+class LoginViewModel(private val loginUseCases: LoginUseCases) : BaseViewModel() {
 
     private val errorMessageLv = MutableLiveData<String>()
     fun getErrorMessageLv(): LiveData<String> = errorMessageLv
@@ -20,18 +20,23 @@ class LoginViewModel(private val loginUseCases: LoginUseCases): BaseViewModel() 
     private val isLoadingLv = MutableLiveData<Boolean>()
     fun isLoading(): LiveData<Boolean> = isLoadingLv
 
-    private fun checkLogin(email: String, password: String){
-    viewModelScope.launch(Dispatchers.IO){
-        try {
-            loginUseCases.login(email, password)
-        } catch (e: Exception) {
-            Log.e("ERROR", e.message)
+    private fun checkLogin(email: String, password: String) {
+
+        viewModelScope.launch(Dispatchers.IO) {
+            isLoadingLv.postValue(true)
+            try {
+                loginUseCases.login(email, password)
+                isLoadingLv.postValue(false)
+            } catch (e: Exception) {
+                isLoadingLv.postValue(false)
+                errorMessageLv.postValue(e.message)
+            }
         }
-    }
+
     }
 
-    fun assembleLogin(){
-        checkLogin("tadeu-teixeira@hotmail.com","1234")
+    fun assembleLogin() {
+        checkLogin("denis@denis.com", "123")
     }
 
   }

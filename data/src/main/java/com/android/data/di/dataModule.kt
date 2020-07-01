@@ -13,6 +13,9 @@ import com.android.domain.features.jobslist.repository.AndroidJobsRepository
 import com.android.domain.features.loginregister.LoginRegisterRepository
 import com.android.domain.login.LoginRepository
 import com.f2prateek.rx.preferences2.RxSharedPreferences
+import com.android.domain.features.jobslist.repository.AndroidJobsRepository
+import com.android.domain.features.loginregister.LoginRegisterRepository
+import com.android.domain.login.LoginRepository
 import kotlinx.coroutines.channels.Channel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.qualifier.named
