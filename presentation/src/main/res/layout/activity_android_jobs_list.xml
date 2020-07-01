@@ -9,8 +9,6 @@
         <variable
             name="viewModel"
             type="com.android.presentation.features.jobslist.list.AndroidJobListViewModel" />
-
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
