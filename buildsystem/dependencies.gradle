@@ -5,7 +5,7 @@ ext {
     targetSDK = 29
     compileSDK = 29
 
-    buildTools = '3.6.1'
+    buildTools = '3.6.3'
 
     appCompactVersion = '1.1.0'
     kotlinVersion = '1.3.72'
@@ -45,46 +45,50 @@ ext {
 
     materialVersion = '1.1.0'
 
+    okHttp = '4.2.2'
+
     dependencies = [
-            kotlin                : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
-            coroutinesCore        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion",
-            coroutinesAndroid     : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion",
+            kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            coroutinesCore       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion",
+            coroutinesAndroid    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion",
 
-            appCompact            : "androidx.appcompat:appcompat:$appCompactVersion",
-            constraintlayout      : "androidx.constraintlayout:constraintlayout:$constrainVersion",
-            cardView              : "androidx.cardview:cardview:$cardViewVersion",
-            recyclerView          : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
-            material              : "com.google.android.material:material:$materialVersion",
+            appCompact           : "androidx.appcompat:appcompat:$appCompactVersion",
+            constraintlayout     : "androidx.constraintlayout:constraintlayout:$constrainVersion",
+            cardView             : "androidx.cardview:cardview:$cardViewVersion",
+            recyclerView         : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            material             : "com.google.android.material:material:$materialVersion",
 
-            viewModel             : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
-            lifeCycle             : "android.arch.lifecycle:extensions:$AndroidArchVersion",
+            viewModel            : "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifeCycleVersion",
+            lifeCycle            : "android.arch.lifecycle:extensions:$AndroidArchVersion",
 
-            dataBinding           : "com.android.databinding:compiler:$databindingVersion",
+            dataBinding          : "com.android.databinding:compiler:$databindingVersion",
 
-            ktx                   : "androidx.core:core-ktx:$ktxVersion",
+            ktx                  : "androidx.core:core-ktx:$ktxVersion",
 
-            rxJava                : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
-            rxKotlin              : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
-            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxJava               : "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxKotlin             : "io.reactivex.rxjava2:rxkotlin:$rxKotlinVersion",
+            rxAndroid            : "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
 
-            koin                  : "org.koin:koin-android:$koinVersion",
-            koinViewModel         : "org.koin:koin-androidx-viewmodel:$koinVersion",
+            koin                 : "org.koin:koin-android:$koinVersion",
+            koinViewModel        : "org.koin:koin-androidx-viewmodel:$koinVersion",
 
-            retrofit              : "com.squareup.retrofit2:retrofit:$retrofitVersion",
-            retrofitRxAdapter     : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
-            retrofitGsonConverter : "com.squareup.retrofit2:converter-gson:$retrofitVersion",
-            gson                  : "com.google.code.gson:gson:$gsonVersion",
+            retrofit             : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitRxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion",
+            retrofitGsonConverter: "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            gson                 : "com.google.code.gson:gson:$gsonVersion",
 
-            room                  : "androidx.room:room-runtime:$roomVersion",
-            roomRxJava            : "androidx.room:room-rxjava2:$roomVersion",
-            roomCompiler          : "androidx.room:room-compiler:$roomVersion",
-            roomKtx               : "androidx.room:room-ktx:$roomVersion"
+            room                 : "androidx.room:room-runtime:$roomVersion",
+            roomRxJava           : "androidx.room:room-rxjava2:$roomVersion",
+            roomCompiler         : "androidx.room:room-compiler:$roomVersion",
+            roomKtx              : "androidx.room:room-ktx:$roomVersion",
+
+            okHttp               : "com.squareup.okhttp3:logging-interceptor:$okHttp"
     ]
 
     testDependecies = [
-            junit                 : "junit:junit:$junitVersion",
-            espresso              : "androidx.test.espresso:espresso-core:$espressoVersion",
-            runner                : "androidx.test:runner:$runnerVersion"
+            junit   : "junit:junit:$junitVersion",
+            espresso: "androidx.test.espresso:espresso-core:$espressoVersion",
+            runner  : "androidx.test:runner:$runnerVersion"
     ]
 
 }

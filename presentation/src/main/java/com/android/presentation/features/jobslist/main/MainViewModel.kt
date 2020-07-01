@@ -1,7 +1,7 @@
 package com.android.presentation.features.jobslist.main
 
 import androidx.lifecycle.MutableLiveData
-import com.android.presentation.features.general.BaseViewModel
+import com.android.presentation.features.general.bases.BaseViewModel
 
 class MainViewModel: BaseViewModel() {
     val showAndroidJobsLiveData = MutableLiveData<Boolean>()

@@ -2,7 +2,12 @@ package com.android.data.di
 
 import com.android.data.features.jobslist.AndroidJobsRepositoryImpl
 import com.android.data.features.general.BuildInfoHelper
+import com.android.data.features.loginregister.LoginRegisterRepositoryImpl
+import com.android.data.login.LoginRepositoryImpl
 import com.android.domain.features.jobslist.repository.AndroidJobsRepository
+import com.android.domain.features.loginregister.LoginRegisterRepository
+import com.android.domain.login.LoginRepository
+import kotlinx.coroutines.channels.Channel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -29,6 +34,15 @@ val repositoryModule = module {
 
     single {
         BuildInfoHelper()
+    }
+
+    //Login Register
+    factory<LoginRegisterRepository> {
+        LoginRegisterRepositoryImpl(get())
+    }
+
+    factory<LoginRepository> {
+        LoginRepositoryImpl(get())
     }
 
 }
