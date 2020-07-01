@@ -35,9 +35,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/tiPassword"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivLogin">
+            app:layout_constraintTop_toBottomOf="@id/ivLogin"
+            app:layout_constraintVertical_chainStyle="packed">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/teEmailLogin"
@@ -59,7 +62,9 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tiEmailLogin"
             app:passwordToggleEnabled="true">
@@ -77,21 +82,22 @@
 
         <Button
             android:id="@+id/btnLogin"
+            style="@style/ButtonPrimary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:enabled="false"
+            android:background="@drawable/button_rounded_primary"
             android:fontFamily="@font/montserrat_regular"
-            android:onClick="@{() -> viewModel.assembleLogin()}"
+
             android:text="@string/login_login_button"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimary"
-            android:background="@drawable/button_rounded_primary"
             style="@style/ButtonPrimary"
             app:layout_constraintBottom_toTopOf="@+id/tvRegister"
-            app:layout_constraintEnd_toEndOf="parent"
+
+                                                   app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -99,6 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="64dp"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:text="@string/login_account_name"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -110,6 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="64dp"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
             android:text="@string/login_remember_my_password"
             app:layout_constraintBottom_toBottomOf="parent"
