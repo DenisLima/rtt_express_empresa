@@ -13,11 +13,7 @@ class LoginRegisterRepositoryImpl(private val loginRegisterDataSource: LoginRegi
         var loginRegisterResultObject = LoginRegisterResultObject()
 
         loginRegisterDataSource.register(LoginRegisterModel(email, password, fullName)).let {
-            loginRegisterResultObject!!.id = it.id
-            loginRegisterResultObject!!.email = it.email
-            loginRegisterResultObject!!.fullName = it.fullName
-            loginRegisterResultObject!!.password = it.password
-            loginRegisterResultObject!!.isAcceptedTerm = it.isAcceptedTerm
+            loginRegisterResultObject!!.status = true
         }
 
         return loginRegisterResultObject!!

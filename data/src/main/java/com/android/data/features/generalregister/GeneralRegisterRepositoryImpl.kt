@@ -2,10 +2,8 @@ package com.android.data.features.generalregister
 
 import com.android.data.features.generalregister.api.GeneralRegisterDataSource
 import com.android.data.features.generalregister.models.GeneralRegisterRequest
-import com.android.data.session.SessionLocalSource
+import com.android.data.features.session.datasources.SessionLocalSource
 import com.android.domain.features.generalregister.GeneralRegisterRepository
-import io.reactivex.Completable
-import io.reactivex.Single
 
 class GeneralRegisterRepositoryImpl(
     private val generalRegisterDataSource: GeneralRegisterDataSource,
@@ -47,8 +45,4 @@ class GeneralRegisterRepositoryImpl(
         )
     }
 
-    override fun putToken(token: String): Single<Boolean> {
-        sessionLocalSource.savedLoggedUser(token)
-        return Single.just(true)
-    }
 }

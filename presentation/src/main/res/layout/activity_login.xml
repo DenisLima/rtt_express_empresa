@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.android.presentation.login.LoginViewModel" />
@@ -16,7 +17,8 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.LoginActivity">
+        tools:context=".login.LoginActivity"
+        android:background="@color/colorPrimary">
 
         <ImageView
             android:id="@+id/ivLogin"
@@ -51,6 +53,7 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/login_email_hint_login"
                 android:inputType="textEmailAddress"
+                android:afterTextChanged="@{(editable) -> viewModel.afterEmailChange(editable)}"
                 android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -76,49 +79,46 @@
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/login_password_login"
                 android:inputType="textPassword"
+                android:afterTextChanged="@{(editable) -> viewModel.afterPasswordChange(editable)}"
                 android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnLogin"
-            style="@style/ButtonPrimary"
+            style="@style/AppTheme.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/button_rounded_primary"
             android:fontFamily="@font/montserrat_regular"
-
             android:text="@string/login_login_button"
             android:textAllCaps="false"
+            android:enabled="false"
             android:textColor="@color/colorPrimary"
-            style="@style/ButtonPrimary"
             app:layout_constraintBottom_toTopOf="@+id/tvRegister"
-
-                                                   app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="64dp"
             android:fontFamily="@font/montserrat_regular"
-            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="4dp"
             android:text="@string/login_account_name"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/btnLogin"
-            />
+            app:layout_constraintStart_toStartOf="@+id/btnLogin" />
 
         <TextView
             android:id="@+id/btnRememberPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="64dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="@font/montserrat_regular"
-            android:gravity="center"
             android:text="@string/login_remember_my_password"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/btnLogin" />

@@ -15,20 +15,27 @@
 
         <activity android:name="com.android.presentation.features.jobslist.main.MainActivity"/>
 
-        <activity android:name="com.android.presentation.features.loginregister.LoginRegisterActivity"/>
+        <activity android:name="com.android.presentation.features.loginregister.LoginRegisterActivity"
+            android:label="@string/login_register_toolbar_title"
+            android:launchMode="singleTask"
+            android:resizeableActivity="false"
+            android:screenOrientation="fullSensor"/>
+
         <activity android:name="com.android.presentation.features.jobslist.list.AndroidJobsListActivity"
             android:theme="@style/AppThemeNoAction"/>
 
         <activity android:name=".features.splash.SplashActivity"
-            android:theme="@style/AppThemeNoAction"/>
-        
-        <activity android:name=".features.generalregister.GeneralRegisterActivity">
+            android:theme="@style/AppThemeNoAction">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
+        <activity android:name=".features.generalregister.GeneralRegisterActivity"/>
+
+        <activity android:name=".home.HomeActivity"/>
 
     </application>
 

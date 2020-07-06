@@ -19,5 +19,4 @@ interface GeneralRegisterRepository {
         site: String
     ): Boolean
 
-    fun putToken(token: String): Single<Boolean>
 }

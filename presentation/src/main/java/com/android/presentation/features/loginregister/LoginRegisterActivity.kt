@@ -1,5 +1,6 @@
 package com.android.presentation.features.loginregister
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -7,7 +8,10 @@ import com.android.presentation.R
 import com.android.presentation.databinding.ActivityLoginRegisterBinding
 import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseActivity
+import com.android.presentation.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_android_jobs_list.*
 import kotlinx.android.synthetic.main.activity_login_register.*
+import kotlinx.android.synthetic.main.toolbar.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginRegisterActivity : BaseActivity() {
@@ -23,6 +27,8 @@ class LoginRegisterActivity : BaseActivity() {
 
         prepareObservers()
         initComponents()
+        setBackOnActionBarEnabled(true)
+        setSupportActionBar(toolbar)
     }
 
     fun initComponents() {
@@ -55,12 +61,22 @@ class LoginRegisterActivity : BaseActivity() {
 
         viewModel.getErrorMessageLv()
             .observeOn(this) { error ->
-                Toast.makeText(this, error, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Erro de conexão, tente novamente!", Toast.LENGTH_SHORT).show()
             }
 
         viewModel.getEnableButton()
             .observeOn(this) {
                 btnRegister.isEnabled = it
+            }
+
+        viewModel.getNavigateToLogin()
+            .observeOn(this) {
+                when {
+                    it -> {
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    }
+                }
             }
 
     }

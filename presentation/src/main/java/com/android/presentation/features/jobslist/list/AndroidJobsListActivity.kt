@@ -39,9 +39,9 @@ class AndroidJobsListActivity: BaseActivity() {
     }
 
     private fun setupView() {
-        setSupportActionBar(binding.toolbar)
-        binding.toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
-        binding.toolbar.setNavigationOnClickListener{
+        setSupportActionBar(binding.toolbar2)
+        binding.toolbar2.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        binding.toolbar2.setNavigationOnClickListener{
             finish()
         }
 

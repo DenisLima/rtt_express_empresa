@@ -68,45 +68,6 @@ class GeneralRegisterViewModel(private val generalRegisterUseCases: GeneralRegis
         }
     }
 
-    fun putTokenManual(
-        razaoSocial: String,
-        cnpj: String,
-        endereco: String,
-        numero: String,
-        complemento: String,
-        telefone1: String,
-        telefone2: String,
-        bairro: String,
-        cidade: String,
-        uf: String,
-        cep: String,
-        responsavelLegal: String,
-        site: String,
-        token: String
-    ) {
-        generalRegisterUseCases.putToken(token)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeBy {
-                when {
-                    it -> registerGeneral(
-                        razaoSocial,
-                        cnpj,
-                        endereco,
-                        numero,
-                        complemento,
-                        telefone1,
-                        telefone2,
-                        bairro,
-                        cidade,
-                        uf,
-                        cep,
-                        responsavelLegal,
-                        site
-                    )
-                }
-            }
-            .dispose()
-    }
+
 
 }

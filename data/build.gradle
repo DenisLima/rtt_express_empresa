@@ -32,7 +32,7 @@ android {
     productFlavors {
         prod{
             dimension dimensions.env
-            buildConfigField "String", "API_URL", API_URL_HOMOL
+            buildConfigField "String", "API_URL", API_URL_PROD
         }
         homol {
             dimension dimensions.env

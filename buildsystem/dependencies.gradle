@@ -48,7 +48,7 @@ ext {
     okHttp = '4.2.2'
 
     //Shared Pref
-    sharedPref = '2.0.3'
+    sharedPref = '2.0.1-beta1'
 
     dependencies = [
             kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
@@ -87,7 +87,7 @@ ext {
 
             okHttp               : "com.squareup.okhttp3:logging-interceptor:$okHttp",
 
-            sharedPref           : "com.afollestad.rxkprefs:core:$sharedPref"
+            sharedPref           : "com.f2prateek.rx.preferences2:rx-preferences:$sharedPref"
 
     ]
 

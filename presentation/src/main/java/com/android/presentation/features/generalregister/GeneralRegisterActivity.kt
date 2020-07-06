@@ -38,22 +38,7 @@ class GeneralRegisterActivity : BaseActivity() {
 
     private fun initComponents() {
         btnRegister.setOnClickListener {
-            viewModel.putTokenManual(
-                razaoSocial = etRazaoSocial.text.toString(),
-                cnpj = edCnpj.text.toString(),
-                endereco = edEndereco.text.toString(),
-                numero = etNumero.text.toString(),
-                complemento = etComplemento.text.toString(),
-                telefone1 = etTelefoneUm.text.toString(),
-                telefone2 = etTelefoneDois.text.toString(),
-                bairro = etBairro.text.toString(),
-                cidade = etCidade.text.toString(),
-                uf = etUf.text.toString(),
-                cep = etCep.text.toString(),
-                responsavelLegal = etRespLegal.text.toString(),
-                site = etSite.text.toString(),
-                token = "Bearer 909090"
-            )
+
         }
     }
 

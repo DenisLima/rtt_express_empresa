@@ -13,6 +13,6 @@ ext {
     ]
 
     API_URL_PROD = '\"https://polar-reef-45609.herokuapp.com\"'
-    API_URL_HOMOL = '\"https://polar-reef-45609.herokuapp.com\"'
+    API_URL_HOMOL = '\"http://10.0.2.2:8080\"'
     API_URL_MOCK = '\"http://demo2078023.mockable.io\"'
 }

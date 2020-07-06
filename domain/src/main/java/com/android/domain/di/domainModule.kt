@@ -6,8 +6,11 @@ import com.android.domain.features.jobslist.usecases.GetJobsUseCases
 import com.android.domain.features.jobslist.usecases.GetJobsUseCasesImpl
 import com.android.domain.features.loginregister.LoginRegisterUseCases
 import com.android.domain.features.loginregister.LoginRegisterUseCasesImpl
+import com.android.domain.features.splash.SplashUseCases
+import com.android.domain.features.splash.SplashUseCasesImpl
 import com.android.domain.login.LoginUseCases
 import com.android.domain.login.LoginUseCasesImpl
+import io.reactivex.disposables.CompositeDisposable
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -17,6 +20,15 @@ val useCaseModule = module {
         GetJobsUseCasesImpl(
             repository = get()
         )
+    }
+
+    factory {
+        CompositeDisposable()
+    }
+
+    //Splash
+    factory<SplashUseCases> {
+        SplashUseCasesImpl(get())
     }
 
     //Login Register

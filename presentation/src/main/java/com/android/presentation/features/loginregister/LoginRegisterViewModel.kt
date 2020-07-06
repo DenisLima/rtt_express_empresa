@@ -31,6 +31,9 @@ class LoginRegisterViewModel(
 
     private var acceptedTermLv: Boolean = false
 
+    private val navigateToLoginLv = MutableLiveData(false)
+    fun getNavigateToLogin(): LiveData<Boolean> = navigateToLoginLv
+
     private val enableButtonLv = MutableLiveData<Boolean>()
     fun getEnableButton(): LiveData<Boolean> = enableButtonLv
 
@@ -44,11 +47,17 @@ class LoginRegisterViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                loginRegisterUseCases.userRegister(
-                    email = loginRegisterModel.email,
-                    password = loginRegisterModel.password,
-                    fullName = loginRegisterModel.fullName
-                )
+                if (
+                    loginRegisterUseCases.userRegister(
+                        email = loginRegisterModel.email,
+                        password = loginRegisterModel.password,
+                        fullName = loginRegisterModel.fullName
+                    ).status
+                ) {
+                    navigateToLoginLv.postValue(true)
+                } else {
+                    errorMessageLv.postValue("")
+                }
                 isLoadingLv.postValue(false)
             } catch (e: Exception) {
                 errorMessageLv.postValue(e.message)

@@ -36,7 +36,4 @@ class GeneralRegisterUseCasesImpl(private val generalRegisterRepository: General
         )
     }
 
-    override fun putToken(token: String): Single<Boolean> {
-        return generalRegisterRepository.putToken(token)
-    }
 }
