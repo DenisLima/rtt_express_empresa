@@ -35,6 +35,7 @@
     <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="android:textColorSecondary">@color/cinza_676767</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
     </style>
 
 </resources>
