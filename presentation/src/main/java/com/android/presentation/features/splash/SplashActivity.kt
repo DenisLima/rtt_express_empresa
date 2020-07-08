@@ -7,7 +7,8 @@ import com.android.presentation.R
 import com.android.presentation.databinding.ActivityMainBinding
 import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseActivity
-import com.android.presentation.home.HomeActivity
+import com.android.presentation.home.HomeFragment
+import com.android.presentation.home.NavigationMenuMain
 import com.android.presentation.login.LoginActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,7 +36,7 @@ class SplashActivity: BaseActivity() {
     private fun prepareObservers() {
         viewModel.getNavigateToHome()
             .observeOn(this) {
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, NavigationMenuMain::class.java)
                 startActivity(intent)
             }
 

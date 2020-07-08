@@ -9,7 +9,8 @@ import com.android.presentation.databinding.ActivityLoginBinding
 import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseActivity
 import com.android.presentation.features.loginregister.LoginRegisterActivity
-import com.android.presentation.home.HomeActivity
+import com.android.presentation.home.HomeFragment
+import com.android.presentation.home.NavigationMenuMain
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -76,7 +77,7 @@ class LoginActivity : BaseActivity() {
 
         viewModel.getNavigateToHome()
             .observeOn(this) {
-                val intent = Intent(this, HomeActivity::class.java)
+                val intent = Intent(this, NavigationMenuMain::class.java)
                 startActivity(intent)
             }
 

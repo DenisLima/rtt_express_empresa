@@ -35,7 +35,7 @@
         
         <activity android:name=".features.generalregister.GeneralRegisterActivity"/>
 
-        <activity android:name=".home.HomeActivity"/>
+        <activity android:name=".home.NavigationMenuMain"/>
 
     </application>
 

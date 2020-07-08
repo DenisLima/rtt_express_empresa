@@ -95,4 +95,8 @@ dependencies {
 
     kapt dependencies.dataBinding
 
+    implementation dependencies.navigation
+    implementation dependencies.uiNavigation
+    implementation dependencies.navSupport
+
 }

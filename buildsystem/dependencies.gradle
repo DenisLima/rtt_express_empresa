@@ -50,6 +50,9 @@ ext {
     //Shared Pref
     sharedPref = '2.0.1-beta1'
 
+    //Navigation
+    navigation = '2.3.0-rc01'
+
     dependencies = [
             kotlin               : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
             coroutinesCore       : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion",
@@ -87,14 +90,20 @@ ext {
 
             okHttp               : "com.squareup.okhttp3:logging-interceptor:$okHttp",
 
-            sharedPref           : "com.f2prateek.rx.preferences2:rx-preferences:$sharedPref"
+            sharedPref           : "com.f2prateek.rx.preferences2:rx-preferences:$sharedPref",
+
+            navigation           : "androidx.navigation:navigation-fragment-ktx:$navigation",
+            uiNavigation         : "androidx.navigation:navigation-ui-ktx:$navigation",
+            navSupport           : "androidx.navigation:navigation-dynamic-features-fragment:$navigation"
 
     ]
 
     testDependecies = [
             junit   : "junit:junit:$junitVersion",
             espresso: "androidx.test.espresso:espresso-core:$espressoVersion",
-            runner  : "androidx.test:runner:$runnerVersion"
+            runner  : "androidx.test:runner:$runnerVersion",
+
+            navTest : "androidx.navigation:navigation-testing:$navigation"
     ]
 
 }
