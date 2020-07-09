@@ -38,10 +38,10 @@ class LoginRegisterActivity : BaseActivity() {
         }
 
         btnRegister.setOnClickListener {
-            viewModel.loginRegisterModel(
-                teNameLoginRegister.text.toString(),
-                teEmailRegister.text.toString(),
-                tePasswordRegister.text.toString()
+            viewModel.onRegister(
+                fullName = teNameLoginRegister.text.toString(),
+                email = teEmailRegister.text.toString(),
+                password = tePasswordRegister.text.toString()
             )
         }
     }

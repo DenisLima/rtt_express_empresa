@@ -38,7 +38,21 @@ class GeneralRegisterActivity : BaseActivity() {
 
     private fun initComponents() {
         btnRegister.setOnClickListener {
-
+            viewModel.registerGeneral(
+                razaoSocial = "teste",
+                cnpj = "9999",
+                endereco = "teste",
+                numero = "99",
+                complemento = "casa",
+                telefone1 = "999",
+                telefone2 = "999",
+                bairro = "Atil",
+                cidade = "city",
+                uf = "SP",
+                cep = "cep",
+                responsavelLegal = "Legal",
+                site = "site"
+            )
         }
     }
 

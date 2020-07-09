@@ -42,16 +42,16 @@ class LoginRegisterViewModel(
         checkButton()
     }
 
-    fun onRegister(loginRegisterModel: PLoginRegisterModel) {
+    fun onRegister(fullName: String, email: String, password: String) {
         isLoadingLv.postValue(true)
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 if (
                     loginRegisterUseCases.userRegister(
-                        email = loginRegisterModel.email,
-                        password = loginRegisterModel.password,
-                        fullName = loginRegisterModel.fullName
+                        email = email,
+                        password = password,
+                        fullName = fullName
                     ).status
                 ) {
                     navigateToLoginLv.postValue(true)
@@ -100,14 +100,4 @@ class LoginRegisterViewModel(
         }
     }
 
-    fun loginRegisterModel(fullName: String, email: String, password: String) {
-
-        onRegister(
-            PLoginRegisterModel(
-                fullName,
-                email,
-                password
-            )
-        )
-    }
 }

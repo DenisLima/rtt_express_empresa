@@ -80,16 +80,16 @@ val repositoryModule = module {
     }
 
     single {
-        AuthorizationInterceptor()
+        AuthorizationInterceptor(get())
     }
 
     single(named(KOIN_OKHTTP)) {
         OkHttpClient.Builder()
             .addNetworkInterceptor(get<HttpLoggingInterceptor>())
             .addInterceptor(get<AuthorizationInterceptor>())
-            .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30, TimeUnit.SECONDS)
+            .connectTimeout(30L, TimeUnit.SECONDS)
+            .readTimeout(30L, TimeUnit.SECONDS)
+            .writeTimeout(30L, TimeUnit.SECONDS)
             .build()
     }
 
