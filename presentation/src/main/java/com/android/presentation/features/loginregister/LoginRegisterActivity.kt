@@ -6,7 +6,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.android.presentation.R
 import com.android.presentation.databinding.ActivityLoginRegisterBinding
+import com.android.presentation.extensions.fromHtml
 import com.android.presentation.extensions.observeOn
+import com.android.presentation.extensions.setOnLinkClicked
 import com.android.presentation.features.general.bases.BaseActivity
 import com.android.presentation.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_android_jobs_list.*
@@ -32,6 +34,14 @@ class LoginRegisterActivity : BaseActivity() {
     }
 
     fun initComponents() {
+
+        with(cbTermsUse){
+            text = getString(R.string.login_register_hint_use_terms, "http://www.globo.com").fromHtml()
+
+            setOnLinkClicked { linkUrl ->
+                viewModel.onTermOfUserClicked()
+            }
+        }
 
         cbTermsUse.setOnClickListener {
             viewModel.setTermAccepted(cbTermsUse.isChecked)
@@ -77,6 +87,11 @@ class LoginRegisterActivity : BaseActivity() {
                         startActivity(intent)
                     }
                 }
+            }
+
+        viewModel.getLinkCLickedUrl()
+            .observeOn(this){
+                Toast.makeText(this, "Segue para abertura do termo", Toast.LENGTH_SHORT).show()
             }
 
     }

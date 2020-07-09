@@ -13,7 +13,9 @@
     <string name="login_register_hint_email">E-mail</string>
     <string name="login_register_hint_password">Senha</string>
     <string name="login_register_hint_confirmpassword">Confirmar Senha</string>
-    <string name="login_register_hint_use_terms">Termos de Uso</string>
+    <string name="login_register_hint_use_terms"><![CDATA[
+            Li e estou de acordo com o <a href="%1$s">regulamento</a>
+        ]]></string>
     <string name="login_register_hint_btn_register">Cadastrar</string>
 
     <!--Login -->

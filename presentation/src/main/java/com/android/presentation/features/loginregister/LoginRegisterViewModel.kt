@@ -37,6 +37,9 @@ class LoginRegisterViewModel(
     private val enableButtonLv = MutableLiveData<Boolean>()
     fun getEnableButton(): LiveData<Boolean> = enableButtonLv
 
+    private val linkClickedUrlLv = MutableLiveData<Unit>()
+    fun getLinkCLickedUrl(): LiveData<Unit> = linkClickedUrlLv
+
     fun setTermAccepted(checked: Boolean) {
         acceptedTermLv = checked
         checkButton()
@@ -98,6 +101,10 @@ class LoginRegisterViewModel(
         } else {
             enableButtonLv.postValue(false)
         }
+    }
+
+    fun onTermOfUserClicked() {
+        linkClickedUrlLv.postValue(Unit)
     }
 
 }
