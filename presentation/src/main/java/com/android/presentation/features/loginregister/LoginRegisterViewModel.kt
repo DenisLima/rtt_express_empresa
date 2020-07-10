@@ -1,15 +1,14 @@
 package com.android.presentation.features.loginregister
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.android.domain.features.loginregister.LoginRegisterUseCases
 import com.android.presentation.features.general.bases.BaseViewModel
-import com.android.presentation.features.loginregister.models.PLoginRegisterModel
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.lang.Exception
+
 
 class LoginRegisterViewModel(
     private val loginRegisterUseCases: LoginRegisterUseCases
@@ -24,10 +23,12 @@ class LoginRegisterViewModel(
     private val userNameLv = MutableLiveData(false)
 
     private val emailLv = MutableLiveData(false)
+    fun getEmail(): LiveData<Boolean> = emailLv
 
     private val passwordlv = MutableLiveData(false)
 
     private val passwordConfirmLv = MutableLiveData(false)
+    fun getPasswordConfirm():LiveData<Boolean> = passwordConfirmLv
 
     private var acceptedTermLv: Boolean = false
 
@@ -39,6 +40,8 @@ class LoginRegisterViewModel(
 
     private val linkClickedUrlLv = MutableLiveData<Unit>()
     fun getLinkCLickedUrl(): LiveData<Unit> = linkClickedUrlLv
+
+    private var passwordFirst: String = ""
 
     fun setTermAccepted(checked: Boolean) {
         acceptedTermLv = checked
@@ -76,17 +79,27 @@ class LoginRegisterViewModel(
     }
 
     fun afterEmailChange(s: CharSequence) {
-        emailLv.value = s.length > 0
+
         checkButton()
+        emailLv.value = isValidEmail(s.toString())
+
+
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
     }
 
     fun afterPasswordChange(s: CharSequence) {
         passwordlv.value = s.length > 0
+        passwordFirst = s.toString()
         checkButton()
     }
 
     fun afterConfirmPasswordChange(s: CharSequence) {
-        passwordConfirmLv.value = s.length > 0
+
+        passwordConfirmLv.value = s.toString().equals(passwordFirst)
         checkButton()
     }
 

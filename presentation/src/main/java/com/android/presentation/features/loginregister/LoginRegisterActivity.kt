@@ -35,8 +35,9 @@ class LoginRegisterActivity : BaseActivity() {
 
     fun initComponents() {
 
-        with(cbTermsUse){
-            text = getString(R.string.login_register_hint_use_terms, "http://www.globo.com").fromHtml()
+        with(cbTermsUse) {
+            text =
+                getString(R.string.login_register_hint_use_terms, "http://www.globo.com").fromHtml()
 
             setOnLinkClicked { linkUrl ->
                 viewModel.onTermOfUserClicked()
@@ -90,8 +91,24 @@ class LoginRegisterActivity : BaseActivity() {
             }
 
         viewModel.getLinkCLickedUrl()
-            .observeOn(this){
+            .observeOn(this) {
                 Toast.makeText(this, "Segue para abertura do termo", Toast.LENGTH_SHORT).show()
+            }
+
+        viewModel.getEmail()
+            .observeOn(this) {
+                when {
+                    it -> tiEmailRegister.error = null
+                    else -> tiEmailRegister.error = "Email Inválido!"
+                }
+            }
+
+        viewModel.getPasswordConfirm()
+            .observeOn(this) {
+                when {
+                    it -> tiConfirmPasswordRegister.error = null
+                    else -> tiConfirmPasswordRegister.error = "Senhas não conferem!"
+                }
             }
 
     }
