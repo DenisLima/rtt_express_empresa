@@ -13,9 +13,9 @@ class LoginRegisterRepositoryImpl(private val loginRegisterDataSource: LoginRegi
         var loginRegisterResultObject = LoginRegisterResultObject()
 
         loginRegisterDataSource.register(LoginRegisterModel(email, password, fullName)).let {
-            loginRegisterResultObject!!.status = true
+            loginRegisterResultObject.status
         }
 
-        return loginRegisterResultObject!!
+        return loginRegisterResultObject
     }
 }

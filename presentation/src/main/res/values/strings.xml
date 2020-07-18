@@ -6,6 +6,10 @@
 
     <!-- General -->
     <string name="general_loading">Carregando...</string>
+    <string name="general_alert_dialog_ok">OK</string>
+    <string name="general_alert_dialog_title">Atenção</string>
+    <string name="general_alert_dialog_description">Enviamos um email com o passo a passo para resetar sua senha!</string>
+
 
     <!--Login Register-->
     <string name="login_register_toolbar_title">Cadastro de Usuário</string>

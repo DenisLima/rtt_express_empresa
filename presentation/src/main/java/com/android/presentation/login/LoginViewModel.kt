@@ -3,6 +3,7 @@ package com.android.presentation.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.android.domain.features.loginregister.ro.LoginRegisterResultObject
 import com.android.domain.features.splash.SplashUseCases
 import com.android.domain.login.LoginUseCases
 import com.android.presentation.features.general.bases.BaseViewModel
@@ -31,14 +32,25 @@ class LoginViewModel(
     private val isLoadingLv = MutableLiveData<Boolean>()
     fun isLoading(): LiveData<Boolean> = isLoadingLv
 
+    private val navigateToLoginEmailMsg = MutableLiveData<Unit>()
+    fun getNavigateToLoginEmailMsg(): LiveData<Unit> = navigateToLoginEmailMsg
+
+    private val navigateToGeneralRegister = MutableLiveData<Unit>()
+    fun getNavigateToGeneralRegister(): LiveData<Unit> = navigateToGeneralRegister
+
     fun checkLogin(email: String, password: String) {
 
         viewModelScope.launch(Dispatchers.IO) {
             isLoadingLv.postValue(true)
             try {
-                loginUseCases.login(email, password)
+                when (loginUseCases.login(email, password).status) {
+                    1 -> navigateToLoginEmailMsg.postValue(Unit)
+                    2 -> navigateToGeneralRegister.postValue(Unit)
+                    else -> navigateToHomeLv.postValue(Unit)
+                }
+
                 isLoadingLv.postValue(false)
-                navigateToHomeLv.postValue(Unit)
+
             } catch (e: Exception) {
                 isLoadingLv.postValue(false)
                 errorMessageLv.postValue(e.message)
@@ -73,5 +85,6 @@ class LoginViewModel(
                 val user = it
             }
     }
+
 
 }

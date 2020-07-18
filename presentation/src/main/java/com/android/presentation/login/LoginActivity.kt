@@ -8,6 +8,7 @@ import com.android.presentation.R
 import com.android.presentation.databinding.ActivityLoginBinding
 import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseActivity
+import com.android.presentation.features.general.dialogs.AlertDialogFragment
 import com.android.presentation.features.loginregister.LoginRegisterActivity
 import com.android.presentation.home.HomeFragment
 import com.android.presentation.home.NavigationMenuMain
@@ -31,10 +32,10 @@ class LoginActivity : BaseActivity() {
 
     }
 
-    private fun initComponents(){
+    private fun initComponents() {
 
         tvRegister.setOnClickListener {
-            var intent=Intent(this,LoginRegisterActivity::class.java)
+            var intent = Intent(this, LoginRegisterActivity::class.java)
             startActivity(intent)
         }
 
@@ -80,6 +81,21 @@ class LoginActivity : BaseActivity() {
                 val intent = Intent(this, NavigationMenuMain::class.java)
                 startActivity(intent)
             }
+
+        viewModel.getNavigateToLoginEmailMsg()
+            .observeOn(this) {
+                val dialog = AlertDialogFragment(
+                    getString(R.string.general_alert_dialog_title),
+                    getString(R.string.general_alert_dialog_description)
+                )
+                dialog.show(supportFragmentManager, null)
+            }
+        viewModel.getNavigateToGeneralRegister()
+            .observeOn(this) {
+                val intent = Intent(this, NavigationMenuMain::class.java)
+                startActivity(intent)
+            }
+
 
     }
 

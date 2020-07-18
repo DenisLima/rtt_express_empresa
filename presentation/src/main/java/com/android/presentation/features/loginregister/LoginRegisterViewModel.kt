@@ -1,5 +1,6 @@
 package com.android.presentation.features.loginregister
 
+import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -56,7 +57,7 @@ class LoginRegisterViewModel(
                         password = password,
                         fullName = fullName
                     ).status
-                ) {
+                    ) {
                     navigateToLoginLv.postValue(true)
                 } else {
                     errorMessageLv.postValue("")
