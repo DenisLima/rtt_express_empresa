@@ -11,10 +11,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 
 class NavigationMenuMain: BaseActivity() {
 
-    private val navController: NavController by lazy {
-        Navigation.findNavController(this, R.id.navHostFragment)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nav)
@@ -33,7 +29,7 @@ class NavigationMenuMain: BaseActivity() {
         menuNavigation.setOnNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.page_2 -> {
-                    Navigation.findNavController(this, R.id.navHostFragment)
+                    navController
                         .navigate(R.id.action_homeFragment_to_generalRegisterActivity)
                     true
                 }

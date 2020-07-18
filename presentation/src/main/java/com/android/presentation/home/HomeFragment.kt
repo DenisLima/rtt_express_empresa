@@ -26,7 +26,7 @@ class HomeFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnTest.setOnClickListener {
-            Navigation.findNavController(requireActivity(), R.id.navHostFragment)
+            navController
                 .navigate(R.id.action_homeFragment_to_homeFragmentTest)
         }
     }

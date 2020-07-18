@@ -4,12 +4,19 @@ import android.view.MenuItem
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import com.android.presentation.R
 import com.android.presentation.features.general.dialogs.LoadingDialog
 
 open class BaseActivity: AppCompatActivity() {
 
     private val loadingDialog by lazy { LoadingDialog(this) }
     private val onDestroyLiveDataBag = mutableListOf<LiveData<*>>()
+
+    val navController: NavController by lazy {
+        Navigation.findNavController(this, R.id.navHostFragment)
+    }
 
     open fun showLoading() {
         loadingDialog.show()
