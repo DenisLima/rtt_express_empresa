@@ -8,6 +8,7 @@
     <color name="cinza_claro">#f5f5f5</color>
     <color name="cinza_f2f2f2">#f2f2f2</color>
     <color name="cinza_676767">#676767</color>
+    <color name="cinza_aca7a7">#aca7a7</color>
 
     <!-- Escala de preto -->
     <color name="black_alpha50">#7b000000</color>
@@ -15,4 +16,6 @@
     <!-- Escala de vermelho -->
     <color name="red_light">#FCC7C7</color>
 
+    <!-- Escala de laranja -->
+    <color name="orange_ffbb24">#FFBB24</color>
 </resources>
