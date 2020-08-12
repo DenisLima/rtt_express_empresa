@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_generalRegisterActivity"
             app:destination="@id/generalRegisterActivity" />
+        <action
+            android:id="@+id/action_homeFragment_to_validationCharterersRegister"
+            app:destination="@id/validationCharterersRegister" />
     </fragment>
 
     <fragment
@@ -29,5 +32,10 @@
         android:name="com.android.presentation.features.generalregister.GeneralRegisterActivity"
         android:label="GeneralRegisterActivity"
         tools:layout="@layout/activity_general_layout"/>
+    <activity
+        android:id="@+id/validationCharterersRegister"
+        android:name="com.android.presentation.features.validationcharterers.ValidationCharterersRegister"
+        android:label="ValidationCharterersRegister"
+        tools:layout="@layout/fragment_register_charterers"/>
 
 </navigation>

@@ -28,6 +28,14 @@
     <string name="login_login_button">Login</string>
     <string name="login_account_name">Cadastra-se</string>
     <string name="login_remember_my_password">Esqueci a senha</string>
+    <string name="one">one</string>
+    <string name="two">two</string>
+    <string name="three">three</string>
+
+    <!--Register Charterers -->
+    <string name="register_charterers_refuse">Recusar cadastro</string>
+    <string name="register_charterers_validate">Validar cadastro</string>
+    <string name="dialog_validation_register">Deseja realmente validar esse Freteiro?</string>
 
 
 </resources>

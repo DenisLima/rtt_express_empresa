@@ -33,6 +33,10 @@ class NavigationMenuMain: BaseActivity() {
                         .navigate(R.id.action_homeFragment_to_generalRegisterActivity)
                     true
                 }
+                R.id.page_3 -> {
+                    navController.navigate(R.id.action_homeFragment_to_validationCharterersRegister)
+                    true
+                }
                 else -> {
                     true
                 }
