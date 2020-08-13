@@ -1,13 +1,10 @@
 package com.android.presentation.features.loginregister
 
-import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.android.domain.features.loginregister.LoginRegisterUseCases
 import com.android.presentation.features.general.bases.BaseViewModel
-import com.android.presentation.features.loginregister.models.PLoginRegisterModel
-import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -51,17 +48,12 @@ class LoginRegisterViewModel(
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                if (
-                    loginRegisterUseCases.userRegister(
-                        email = email,
-                        password = password,
-                        fullName = fullName
-                    ).status
-                    ) {
-                    navigateToLoginLv.postValue(true)
-                } else {
-                    errorMessageLv.postValue("")
-                }
+                loginRegisterUseCases.userRegister(
+                    email = email,
+                    password = password,
+                    fullName = fullName
+                )
+                navigateToLoginLv.postValue(true)
                 isLoadingLv.postValue(false)
             } catch (e: Exception) {
                 errorMessageLv.postValue(e.message)
