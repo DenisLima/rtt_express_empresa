@@ -38,7 +38,7 @@ class LoginRegisterActivity : BaseActivity() {
         with(cbTermsUse){
             text = getString(R.string.login_register_hint_use_terms, "http://www.globo.com").fromHtml()
 
-            setOnLinkClicked { linkUrl ->
+            setOnLinkClicked {
                 viewModel.onTermOfUserClicked()
             }
         }
@@ -84,6 +84,7 @@ class LoginRegisterActivity : BaseActivity() {
                 when {
                     it -> {
                         val intent = Intent(this, LoginActivity::class.java)
+                        intent.putExtra(SHOW_REGISTER_SUCCESS, true)
                         startActivity(intent)
                     }
                 }
@@ -94,6 +95,10 @@ class LoginRegisterActivity : BaseActivity() {
                 Toast.makeText(this, "Segue para abertura do termo", Toast.LENGTH_SHORT).show()
             }
 
+    }
+
+    companion object {
+        private const val SHOW_REGISTER_SUCCESS = "registerSuccess"
     }
 
 }

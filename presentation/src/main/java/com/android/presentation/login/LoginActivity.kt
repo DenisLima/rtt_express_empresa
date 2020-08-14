@@ -19,6 +19,9 @@ class LoginActivity : BaseActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private val viewModel: LoginViewModel by viewModel()
+    private val showRegisterSuccess by lazy {
+        intent.getBooleanExtra(SHOW_REGISTER_SUCCESS, false)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,17 @@ class LoginActivity : BaseActivity() {
         prepareObservers()
 
         initComponents()
+        initRegisterDialog()
 
+    }
+
+    private fun initRegisterDialog() {
+        if (showRegisterSuccess) {
+            AlertDialogFragment(
+                "Olá",
+                "Enviamos um email para você, por favor clicar no link do email para ativar a conta!"
+            ).show(supportFragmentManager, null)
+        }
     }
 
     private fun initComponents() {
@@ -99,5 +112,8 @@ class LoginActivity : BaseActivity() {
 
     }
 
+    companion object {
+        private const val SHOW_REGISTER_SUCCESS = "registerSuccess"
+    }
 
 }

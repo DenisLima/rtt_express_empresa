@@ -64,22 +64,22 @@ class LoginRegisterViewModel(
     }
 
     fun afterNameChange(s: CharSequence) {
-        userNameLv.value = s.length > 0
+        userNameLv.value = s.isNotEmpty()
         checkButton()
     }
 
     fun afterEmailChange(s: CharSequence) {
-        emailLv.value = s.length > 0
+        emailLv.value = s.isNotEmpty()
         checkButton()
     }
 
     fun afterPasswordChange(s: CharSequence) {
-        passwordlv.value = s.length > 0
+        passwordlv.value = s.isNotEmpty()
         checkButton()
     }
 
     fun afterConfirmPasswordChange(s: CharSequence) {
-        passwordConfirmLv.value = s.length > 0
+        passwordConfirmLv.value = s.isNotEmpty()
         checkButton()
     }
 
