@@ -25,9 +25,14 @@ class NavigationMenuMain : BaseActivity() {
 
         menuNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.page_2 -> {
+                R.id.home -> {
                     navController
-                        .navigate(R.id.action_homeFragment_to_generalRegisterActivity)
+                        .navigate(R.id.homeFragment)
+                    true
+                }
+                R.id.carregamento -> {
+                    navController
+                        .navigate(R.id.action_homeFragment_to_loadingFragment)
                     true
                 }
                 else -> {

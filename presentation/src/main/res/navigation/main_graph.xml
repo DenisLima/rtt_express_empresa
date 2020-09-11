@@ -15,8 +15,8 @@
             android:id="@+id/action_homeFragment_to_homeFragmentTest"
             app:destination="@id/homeFragmentTest" />
         <action
-            android:id="@+id/action_homeFragment_to_generalRegisterActivity"
-            app:destination="@id/generalRegisterActivity" />
+            android:id="@+id/action_homeFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
     </fragment>
 
     <fragment
@@ -29,5 +29,10 @@
         android:name="com.android.presentation.features.generalregister.GeneralRegisterActivity"
         android:label="GeneralRegisterActivity"
         tools:layout="@layout/activity_general_layout"/>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.android.presentation.features.loadings.LoadingFragment"
+        android:label="LoadingFragment"
+        tools:layout="@layout/fragment_loading"/>
 
 </navigation>

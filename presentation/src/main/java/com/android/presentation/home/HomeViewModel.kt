@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import com.android.domain.features.session.SessionUseCases
 import com.android.domain.features.session.models.User
 import com.android.presentation.features.general.bases.BaseViewModel
-import java.lang.Exception
 
 class HomeViewModel(
     private val sessionUseCases: SessionUseCases

@@ -31,5 +31,9 @@
     <string name="login_account_name">Cadastra-se</string>
     <string name="login_remember_my_password">Esqueci a senha</string>
 
+    <!-- Loading -->
+    <string name="loading_generate_loading">Gerar carregamento</string>
+    <string name="loading_follow_loading">Acompanhar carregamento</string>
+
 
 </resources>
