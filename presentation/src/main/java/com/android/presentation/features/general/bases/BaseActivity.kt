@@ -18,6 +18,10 @@ open class BaseActivity: AppCompatActivity() {
         Navigation.findNavController(this, R.id.navHostFragment)
     }
 
+    fun hiddenTitle() {
+        title = ""
+    }
+
     open fun showLoading() {
         loadingDialog.show()
     }

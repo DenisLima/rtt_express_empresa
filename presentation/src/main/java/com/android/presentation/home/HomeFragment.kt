@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.Navigation
+import android.widget.Toast
 import com.android.presentation.R
+import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseFragment
-import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment: BaseFragment() {
@@ -25,6 +25,24 @@ class HomeFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        initComponents()
+        prepareObservers()
     }
+
+    private fun initComponents() {
+        viewModel.getUser()
+    }
+
+    private fun prepareObservers() {
+        viewModel.getErrorMessage()
+            .observeOn(this) {
+                Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+            }
+
+        viewModel.getUserInfo()
+            .observeOn(this) {
+                setToolbarTitle(it.fullName)
+            }
+    }
+
 }

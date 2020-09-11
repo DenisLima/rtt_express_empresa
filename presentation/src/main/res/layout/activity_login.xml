@@ -17,30 +17,27 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".login.LoginActivity"
-        android:background="@color/colorPrimary">
+        android:background="@color/colorPrimary"
+        tools:context=".login.LoginActivity">
 
         <ImageView
             android:id="@+id/ivLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="40dp"
             android:src="@drawable/logo_empresa"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tiEmailLogin"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tiEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/tiPassword"
+            app:layout_constraintBottom_toTopOf="@id/tiPassword"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivLogin"
             app:layout_constraintVertical_chainStyle="packed">
@@ -49,12 +46,11 @@
                 android:id="@+id/teEmailLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_letter"
-                android:drawablePadding="4dp"
+                android:afterTextChanged="@{(editable) -> viewModel.afterEmailChange(editable)}"
+                android:drawableEnd="@drawable/ic_baseline_local_post_office_24"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/login_email_hint_login"
                 android:inputType="textEmailAddress"
-                android:afterTextChanged="@{(editable) -> viewModel.afterEmailChange(editable)}"
                 android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -68,7 +64,6 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tiEmailLogin"
             app:passwordToggleEnabled="true">
@@ -77,10 +72,10 @@
                 android:id="@+id/tePassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:afterTextChanged="@{(editable) -> viewModel.afterPasswordChange(editable)}"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="@string/login_password_login"
                 android:inputType="textPassword"
-                android:afterTextChanged="@{(editable) -> viewModel.afterPasswordChange(editable)}"
                 android:textColor="@color/colorPrimaryDark" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,10 +88,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
+            android:enabled="false"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/login_login_button"
             android:textAllCaps="false"
-            android:enabled="false"
             android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toTopOf="@+id/tvRegister"
             app:layout_constraintEnd_toEndOf="parent"
@@ -106,9 +101,9 @@
             android:id="@+id/tvRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_regular"
-            android:layout_marginBottom="24dp"
             android:layout_marginStart="4dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/montserrat_regular"
             android:text="@string/login_account_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/btnLogin" />
@@ -117,8 +112,8 @@
             android:id="@+id/btnRememberPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/montserrat_regular"
             android:text="@string/login_remember_my_password"
             app:layout_constraintBottom_toBottomOf="parent"

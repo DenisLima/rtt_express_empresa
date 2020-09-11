@@ -20,7 +20,7 @@
         android:fontFamily="@font/montserrat_regular"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        android:text="Olá"/>
+        android:text="@string/hello"/>
 
 </androidx.appcompat.widget.Toolbar>
 

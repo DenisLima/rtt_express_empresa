@@ -10,6 +10,7 @@ import com.android.data.features.jobslist.source.RemoteDataSource
 import com.android.data.features.jobslist.source.RemoteDataSourceImpl
 import com.android.data.features.loginregister.LoginRegisterRepositoryImpl
 import com.android.data.features.loginregister.api.LoginRegisterDataSource
+import com.android.data.features.session.SessionRepositoryImpl
 import com.android.data.features.session.datasources.SessionLocalSource
 import com.android.data.features.session.datasources.SessionLocalSourceImpl
 import com.android.data.infra.AuthorizationInterceptor
@@ -19,6 +20,7 @@ import com.android.data.login.api.LoginDataSource
 import com.android.domain.features.generalregister.GeneralRegisterRepository
 import com.android.domain.features.jobslist.repository.AndroidJobsRepository
 import com.android.domain.features.loginregister.LoginRegisterRepository
+import com.android.domain.features.session.SessionRepository
 import com.android.domain.login.LoginRepository
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.google.gson.Gson
@@ -163,6 +165,10 @@ val repositoryModule = module {
 
     factory<GeneralRegisterRepository> {
         GeneralRegisterRepositoryImpl(get(), get())
+    }
+
+    factory<SessionRepository>{
+        SessionRepositoryImpl(get())
     }
 
 }

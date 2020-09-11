@@ -34,12 +34,12 @@ class SessionLocalSourceImpl(
 
     override fun getLoggedUser(): Single<DUser> {
         val user = prefs.getString(LOGGED_USER_KEY, null)
-        if (user != null) {
-            return Single.just(
+        return if (user != null) {
+            Single.just(
                 gson.fromJson(user, DUser::class.java)
             )
         } else {
-           return Single.error<DUser>(Exception())
+            Single.error<DUser>(Exception())
         }
     }
 
