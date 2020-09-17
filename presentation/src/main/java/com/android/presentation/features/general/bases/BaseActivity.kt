@@ -1,6 +1,8 @@
 package com.android.presentation.features.general.bases
 
 import android.view.MenuItem
+import android.view.View
+import android.widget.TextView
 import androidx.annotation.CallSuper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
@@ -20,6 +22,11 @@ open class BaseActivity: AppCompatActivity() {
 
     fun hiddenTitle() {
         title = ""
+    }
+
+    fun hiddenOriginTitle() {
+        var title = findViewById<TextView>(R.id.txtHomeWelcomeMsg)
+        title.visibility = View.GONE
     }
 
     open fun showLoading() {

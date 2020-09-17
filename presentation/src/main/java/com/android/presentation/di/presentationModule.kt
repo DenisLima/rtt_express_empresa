@@ -4,6 +4,7 @@ import com.android.presentation.features.generalregister.GeneralRegisterViewMode
 import com.android.presentation.features.jobslist.list.AndroidJobListViewModel
 import com.android.presentation.features.jobslist.list.AndroidJobsAdapter
 import com.android.presentation.features.jobslist.main.MainViewModel
+import com.android.presentation.features.loadings.generateloadings.GenerateLoadingsFragmentViewModel
 import com.android.presentation.features.loginregister.LoginRegisterViewModel
 import com.android.presentation.features.splash.SplashViewModel
 import com.android.presentation.home.HomeViewModel
@@ -35,4 +36,7 @@ val presentationModule = module {
     viewModel { GeneralRegisterViewModel(get()) }
 
     viewModel { HomeViewModel(get()) }
+
+    //Loadings
+    viewModel { GenerateLoadingsFragmentViewModel(get()) }
 }

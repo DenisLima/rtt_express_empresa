@@ -28,12 +28,12 @@
         android:layout_height="2dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@color/cinza_676767"
-        app:layout_constraintBottom_toTopOf="@+id/tvFollowLoading"
+        android:background="@color/cinza_f2f2f2"
+        app:layout_constraintBottom_toTopOf="@id/tvFollowLoading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGenerateLoading"
+        app:layout_constraintTop_toBottomOf="@id/tvGenerateLoading"
         android:orientation="horizontal" />
 
     <TextView

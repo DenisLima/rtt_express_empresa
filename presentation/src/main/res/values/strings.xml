@@ -34,6 +34,15 @@
     <!-- Loading -->
     <string name="loading_generate_loading">Gerar carregamento</string>
     <string name="loading_follow_loading">Acompanhar carregamento</string>
+    <string name="loading_follow_label">Carregamento</string>
 
+    <string name="loading_qtd_loading">Quantidade</string>
+    <string name="loading_date_register_loading">Data de cadastro</string>
+    <string name="loading_description">Descrição</string>
+    <string name="loading_withdrawal_date">Data de retirada</string>
+    <string name="loading_withdrawal_hour">Hora de retirada</string>
+    <string name="loading_value_propose">Valor proposto</string>
+    <string name="loading_observation">Observação</string>
+    <string name="loading_button_next">Próximo</string>
 
 </resources>

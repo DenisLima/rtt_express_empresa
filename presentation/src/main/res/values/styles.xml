@@ -38,4 +38,14 @@
         <item name="fontFamily">@font/montserrat_regular</item>
     </style>
 
+    <style name="ToolbarCenteredColor" parent="Theme.AppCompat.Light">
+        <item name="android:gravity">center</item>
+        <item name="fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="SpinnerFontChanged" parent="Widget.AppCompat.Spinner">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 </resources>

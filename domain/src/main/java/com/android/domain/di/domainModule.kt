@@ -4,6 +4,8 @@ import com.android.domain.features.generalregister.GeneralRegisterUseCases
 import com.android.domain.features.generalregister.GeneralRegisterUseCasesImpl
 import com.android.domain.features.jobslist.usecases.GetJobsUseCases
 import com.android.domain.features.jobslist.usecases.GetJobsUseCasesImpl
+import com.android.domain.features.loadings.GenerateLoadingsUseCases
+import com.android.domain.features.loadings.GenerateLoadingsUseCasesImpl
 import com.android.domain.features.loginregister.LoginRegisterUseCases
 import com.android.domain.features.loginregister.LoginRegisterUseCasesImpl
 import com.android.domain.features.session.SessionUseCases
@@ -50,6 +52,10 @@ val useCaseModule = module {
 
     factory<SessionUseCases> {
         SessionUseCasesImpl(get())
+    }
+
+    factory<GenerateLoadingsUseCases> {
+        GenerateLoadingsUseCasesImpl(get())
     }
 
 }
