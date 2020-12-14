@@ -44,5 +44,6 @@
     <string name="loading_value_propose">Valor proposto</string>
     <string name="loading_observation">Observação</string>
     <string name="loading_button_next">Próximo</string>
+    <string name="loading_send_loadings">Enviar Carregamento</string>
 
 </resources>

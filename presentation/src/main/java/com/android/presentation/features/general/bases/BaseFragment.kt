@@ -5,8 +5,23 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.android.presentation.R
+import com.android.presentation.features.general.dialogs.LoadingDialog
 
 open class BaseFragment : Fragment() {
+
+    private val loadingDialog by lazy { LoadingDialog(requireContext()) }
+
+    open fun showLoading() {
+        loadingDialog.show()
+    }
+
+    open fun showLoading(customMsg: String) {
+        loadingDialog.show(customMsg)
+    }
+
+    open fun hideLoading() {
+        loadingDialog.hide()
+    }
 
     val navController: NavController by lazy {
         Navigation.findNavController(requireActivity(), R.id.navHostFragment)

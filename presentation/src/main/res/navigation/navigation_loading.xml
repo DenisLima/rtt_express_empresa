@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/generateLoadingsFormFragment"
-        android:name="com.android.presentation.features.loadings.generateloadings.GenerateLoadingsFormFragment"
+        android:name="com.android.presentation.features.loadings.generateloadings.form.GenerateLoadingsFormFragment"
         android:label="GenerateLoadingsFormFragment"
         tools:layout="@layout/fragment_list_charterer"/>
 </navigation>
