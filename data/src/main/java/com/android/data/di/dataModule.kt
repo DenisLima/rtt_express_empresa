@@ -8,8 +8,11 @@ import com.android.data.features.generalregister.api.GeneralRegisterDataSource
 import com.android.data.features.jobslist.api.ServerApi
 import com.android.data.features.jobslist.source.RemoteDataSource
 import com.android.data.features.jobslist.source.RemoteDataSourceImpl
+import com.android.data.features.loadings.GenerateLoadingsRepositoryImpl
+import com.android.data.features.loadings.datasource.GenerateLoadingsRemoteSource
 import com.android.data.features.loginregister.LoginRegisterRepositoryImpl
 import com.android.data.features.loginregister.api.LoginRegisterDataSource
+import com.android.data.features.session.SessionRepositoryImpl
 import com.android.data.features.session.datasources.SessionLocalSource
 import com.android.data.features.session.datasources.SessionLocalSourceImpl
 import com.android.data.infra.AuthorizationInterceptor
@@ -18,7 +21,9 @@ import com.android.data.login.LoginRepositoryImpl
 import com.android.data.login.api.LoginDataSource
 import com.android.domain.features.generalregister.GeneralRegisterRepository
 import com.android.domain.features.jobslist.repository.AndroidJobsRepository
+import com.android.domain.features.loadings.GenerateLoadingsRepository
 import com.android.domain.features.loginregister.LoginRegisterRepository
+import com.android.domain.features.session.SessionRepository
 import com.android.domain.login.LoginRepository
 import com.f2prateek.rx.preferences2.RxSharedPreferences
 import com.google.gson.Gson
@@ -87,9 +92,9 @@ val repositoryModule = module {
         OkHttpClient.Builder()
             .addNetworkInterceptor(get<HttpLoggingInterceptor>())
             .addInterceptor(get<AuthorizationInterceptor>())
-            .connectTimeout(30L, TimeUnit.SECONDS)
-            .readTimeout(30L, TimeUnit.SECONDS)
-            .writeTimeout(30L, TimeUnit.SECONDS)
+            .connectTimeout(60L, TimeUnit.SECONDS)
+            .readTimeout(60L, TimeUnit.SECONDS)
+            .writeTimeout(60L, TimeUnit.SECONDS)
             .build()
     }
 
@@ -163,6 +168,22 @@ val repositoryModule = module {
 
     factory<GeneralRegisterRepository> {
         GeneralRegisterRepositoryImpl(get(), get())
+    }
+
+    factory<SessionRepository>{
+        SessionRepositoryImpl(get())
+    }
+
+    //Loadings
+    single {
+        ServiceFactory.createService(
+            get(named(KOIN_RETROFIT)),
+            GenerateLoadingsRemoteSource::class.java
+        )
+    }
+
+    factory<GenerateLoadingsRepository> {
+        GenerateLoadingsRepositoryImpl(get())
     }
 
 }

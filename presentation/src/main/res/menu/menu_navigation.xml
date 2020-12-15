@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="Home"/>
 
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/carregamento"
         android:enabled="true"
         android:icon="@drawable/ic_group"
         android:title="Carregamento"/>
 
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/pedido"
         android:enabled="true"
         android:icon="@drawable/ic_library_add_24px_1"
         android:title="Pedido"/>
 
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/configuracao"
         android:enabled="true"
         android:icon="@drawable/ic_settings_24px_1"
         android:title="Configuração"/>
 
     <item
-        android:id="@+id/page_5"
+        android:id="@+id/menu"
         android:enabled="true"
         android:icon="@drawable/ic_menu_black_24dp"
         android:title="Menu"/>

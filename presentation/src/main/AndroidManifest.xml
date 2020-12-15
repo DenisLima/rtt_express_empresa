@@ -36,6 +36,8 @@
         <activity android:name=".features.generalregister.GeneralRegisterActivity"/>
 
         <activity android:name=".home.NavigationMenuMain"/>
+        <activity android:name=".features.loadings.NavigationLoading"
+            android:label="@string/loading_generate_loading"/>
 
     </application>
 

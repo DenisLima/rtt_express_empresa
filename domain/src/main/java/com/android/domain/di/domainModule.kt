@@ -4,8 +4,12 @@ import com.android.domain.features.generalregister.GeneralRegisterUseCases
 import com.android.domain.features.generalregister.GeneralRegisterUseCasesImpl
 import com.android.domain.features.jobslist.usecases.GetJobsUseCases
 import com.android.domain.features.jobslist.usecases.GetJobsUseCasesImpl
+import com.android.domain.features.loadings.GenerateLoadingsUseCases
+import com.android.domain.features.loadings.GenerateLoadingsUseCasesImpl
 import com.android.domain.features.loginregister.LoginRegisterUseCases
 import com.android.domain.features.loginregister.LoginRegisterUseCasesImpl
+import com.android.domain.features.session.SessionUseCases
+import com.android.domain.features.session.SessionUseCasesImpl
 import com.android.domain.features.splash.SplashUseCases
 import com.android.domain.features.splash.SplashUseCasesImpl
 import com.android.domain.login.LoginUseCases
@@ -45,6 +49,15 @@ val useCaseModule = module {
     factory<GeneralRegisterUseCases> {
         GeneralRegisterUseCasesImpl(get())
     }
+
+    factory<SessionUseCases> {
+        SessionUseCasesImpl(get())
+    }
+
+    factory<GenerateLoadingsUseCases> {
+        GenerateLoadingsUseCasesImpl(get())
+    }
+
 }
 
 val domainModule = listOf(useCaseModule)

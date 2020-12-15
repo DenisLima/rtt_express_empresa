@@ -60,12 +60,12 @@ class LoginViewModel(
     }
 
     fun afterEmailChange(s: CharSequence) {
-        emailLv.value = s.length > 0
+        emailLv.value = s.isNotEmpty()
         checkButton()
     }
 
     fun afterPasswordChange(s: CharSequence) {
-        passwordLv.value = s.length > 0
+        passwordLv.value = s.isNotEmpty()
         checkButton()
     }
 

@@ -1,8 +1,10 @@
 <resources>
+    <!-- Main -->
     <string name="app_name">Rtt Express</string>
     <string name="try_again">Tente novamente</string>
     <string name="show_list">Mostrar Lista</string>
     <string name="out">Sair</string>
+    <string name="hello">Olá, %1$s</string>
 
     <!-- General -->
     <string name="general_loading">Carregando...</string>
@@ -29,5 +31,22 @@
     <string name="login_account_name">Cadastra-se</string>
     <string name="login_remember_my_password">Esqueci a senha</string>
 
+    <!-- Loading -->
+    <string name="loading_generate_loading">Gerar carregamento</string>
+    <string name="loading_follow_loading">Acompanhar carregamento</string>
+    <string name="loading_follow_label">Carregamento</string>
+
+    <string name="loading_qtd_loading">Quantidade</string>
+    <string name="loading_date_register_loading">Data de cadastro</string>
+    <string name="loading_description">Descrição</string>
+    <string name="loading_withdrawal_date">Data de retirada</string>
+    <string name="loading_withdrawal_hour">Hora de retirada</string>
+    <string name="loading_value_propose">Valor proposto</string>
+    <string name="loading_observation">Observação</string>
+    <string name="loading_button_next">Próximo</string>
+    <string name="loading_send_loadings">Enviar Carregamento</string>
+    <string name="loading_selecteds_header">Selecionados %1$s de %2$s</string>
+    <string name="loading_button_ok">OK</string>
+    <string name="loading_msg_confirm">Carregamento gerado com sucesso!</string>
 
 </resources>

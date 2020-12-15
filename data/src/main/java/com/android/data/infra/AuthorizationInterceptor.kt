@@ -1,6 +1,5 @@
 package com.android.data.infra
 
-import android.util.Log
 import com.android.data.features.session.datasources.SessionLocalSource
 import okhttp3.Interceptor
 import okhttp3.Response
