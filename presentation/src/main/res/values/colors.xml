@@ -19,4 +19,7 @@
 
     <!-- Escala de laranja -->
     <color name="orange_ffbb24">#FFBB24</color>
+
+    <!-- Escala de verde -->
+    <color name="green_3F8B47">#3F8B47</color>
 </resources>

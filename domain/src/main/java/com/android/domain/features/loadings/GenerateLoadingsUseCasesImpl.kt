@@ -2,6 +2,7 @@ package com.android.domain.features.loadings
 
 import com.android.domain.features.loadings.models.Charterer
 import com.android.domain.features.loadings.models.Client
+import com.android.domain.features.loadings.models.Loading
 import com.android.domain.features.loadings.models.Vehicle
 
 class GenerateLoadingsUseCasesImpl(
@@ -18,6 +19,10 @@ class GenerateLoadingsUseCasesImpl(
 
     override suspend fun getCharterers(): List<Charterer> {
         return generateLoadingsRepository.getCharterers()
+    }
+
+    override suspend fun saveLoading(loading: Loading): Loading {
+        return generateLoadingsRepository.saveLoading(loading)
     }
 
 }

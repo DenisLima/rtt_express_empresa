@@ -10,10 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.Toast
+import com.android.domain.features.loadings.models.Client
+import com.android.domain.features.loadings.models.Vehicle
 import com.android.presentation.R
 import com.android.presentation.extensions.observeOn
 import com.android.presentation.features.general.bases.BaseFragment
+import com.android.presentation.features.loadings.generateloadings.registrationdata.PLoading
 import kotlinx.android.synthetic.main.fragment_generate_loading.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -24,6 +28,10 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
 
     private val viewModel by viewModel<GenerateLoadingsFragmentViewModel>()
     val myCalendar = Calendar.getInstance()
+    private var listClient = listOf<Client>()
+    private var currentyClient = 0
+    private var listVehicleType = listOf<Vehicle>()
+    private var currentyVehicle = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,7 +52,20 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
     }
 
     private fun initComponents() {
+
         btnLoadingNext.setOnClickListener {
+            viewModel.mapperObjectToNavigation(
+                PLoading(
+                    quantity = etLoadingQtd.text.toString().toInt(),
+                    client = currentyClient,
+                    description = etLoadingDescription.text.toString(),
+                    withdrawalHour = etLoadingWithdrawalHour.text.toString(),
+                    withdrawalDate = etLoadingWithdrawal.text.toString(),
+                    price = etLoadingValuePropose.text.toString().toFloat(),
+                    vehicleType = currentyVehicle,
+                    observation = etLoadingObservation.text.toString()
+                )
+            )
             navControllerLoadings.navigate(R.id.action_generateLoadingsFragment_to_generateLoadingsFormFragment)
         }
 
@@ -89,6 +110,8 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
 
         viewModel.getCustomersList()
             .observeOn(this) {
+                listClient = it
+                currentyClient = listClient[0].id
                 initSpinner(it)
             }
 
@@ -112,13 +135,15 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
         viewModel.getVehiclesList()
             .observeOn(this) {
                 initSpinnerVehicles(it)
+                listVehicleType = it
+                currentyVehicle = listVehicleType[0].type
             }
 
     }
 
-    private fun initSpinnerVehicles(vehiclesList: List<String>) {
+    private fun initSpinnerVehicles(vehiclesList: List<Vehicle>) {
         var spinnerAdapterVehicle =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, vehiclesList)
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, vehiclesList.map { it.name })
         spinnerAdapterVehicle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         with(spinnerLoadingVehicles) {
@@ -128,9 +153,9 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
         }
     }
 
-    private fun initSpinner(costumersList: List<String>) {
+    private fun initSpinner(costumersList: List<Client>) {
         var spinnerAdapter =
-            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, costumersList)
+            ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, costumersList.map { it.name })
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         with(spinnerLoadingClients) {
@@ -145,7 +170,12 @@ class GenerateLoadingsFragment : BaseFragment(), AdapterView.OnItemSelectedListe
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        Toast.makeText(context, "O que foi selecionado foi $p2", Toast.LENGTH_LONG).show()
+        val spinner = p0 as Spinner
+        if (spinner.id == R.id.spinnerLoadingClients) {
+            currentyClient = listClient[p2].id
+        } else {
+            currentyVehicle = listVehicleType[p2].type
+        }
     }
 
     var date =

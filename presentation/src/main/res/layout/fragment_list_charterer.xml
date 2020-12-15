@@ -9,7 +9,7 @@
         android:id="@+id/tvChartererTotaly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Selecionados 0 de 0"
+        android:text="@string/loading_selecteds_header"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/black"
         app:layout_constraintTop_toTopOf="parent"

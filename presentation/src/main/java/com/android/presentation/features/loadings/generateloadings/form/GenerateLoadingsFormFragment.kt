@@ -1,10 +1,11 @@
 package com.android.presentation.features.loadings.generateloadings.form
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.domain.features.loadings.models.Charterer
 import com.android.presentation.R
@@ -19,6 +20,8 @@ class GenerateLoadingsFormFragment : BaseFragment(),
     GenerateLoadingsCharterersAdapter.OnRemoveItem {
 
     private val viewModel by viewModel<GenerateLoadingsFormFragmentViewModel>()
+    private var totalCharactere = 0
+    private var listCharacters = listOf<Charterer>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +35,15 @@ class GenerateLoadingsFormFragment : BaseFragment(),
         super.onViewCreated(view, savedInstanceState)
         prepareObservers()
         viewModel.getCharacterersList()
+        initComponents()
+    }
+
+    private fun initComponents() {
+
+        btnSendLoadings.setOnClickListener {
+            viewModel.saveLoading()
+        }
+
     }
 
     private fun initRecyclerView(charterers: List<Charterer>) {
@@ -50,6 +62,7 @@ class GenerateLoadingsFormFragment : BaseFragment(),
 
     }
 
+    @SuppressLint("StringFormatMatches")
     private fun prepareObservers() {
 
         viewModel.getLoading()
@@ -63,16 +76,30 @@ class GenerateLoadingsFormFragment : BaseFragment(),
 
         viewModel.getCharacterers()
             .observeOn(this) {
-                initRecyclerView(it)
+                initRecyclerView(it.list)
+                tvChartererTotaly.text = getString(R.string.loading_selecteds_header, "0", it.quantity)
+                totalCharactere = it.quantity
+                listCharacters = it.list
             }
+
+        viewModel.getCharactereHeader()
+            .observeOn(this) {
+                tvChartererTotaly.text = getString(R.string.loading_selecteds_header, it, totalCharactere.toString())
+            }
+
+        viewModel.getNavigateToConfirm()
+            .observeOn(this) {
+                navControllerLoadings.navigate(R.id.action_generateLoadingsFormFragment_to_generateLoadingsConfirmFragment)
+            }
+
     }
 
-    override fun onItemClick(position: String) {
-        Toast.makeText(context, "adicionou $position", Toast.LENGTH_SHORT).show()
+    override fun onItemClick(charterer: Charterer) {
+        viewModel.addCharactere(charterer)
     }
 
-    override fun onItemRemoveClick(position: String) {
-        Toast.makeText(context, "removeu $position", Toast.LENGTH_SHORT).show()
+    override fun onItemRemoveClick(charterer: Charterer) {
+        viewModel.removeCharactere(charterer)
     }
 
 }

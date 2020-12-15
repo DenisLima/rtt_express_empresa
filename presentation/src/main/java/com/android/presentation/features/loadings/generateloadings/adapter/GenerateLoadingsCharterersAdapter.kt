@@ -26,9 +26,9 @@ class GenerateLoadingsCharterersAdapter(
             name.text = charterer.name
             checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
                 if (isChecked) {
-                    listener.onItemClick(charterer.name)
+                    listener.onItemClick(charterer)
                 } else {
-                    listenerRemove.onItemRemoveClick(charterer.name)
+                    listenerRemove.onItemRemoveClick(charterer)
                 }
             }
         }
@@ -59,11 +59,11 @@ class GenerateLoadingsCharterersAdapter(
     }
 
     interface OnAddItem {
-        fun onItemClick(position: String)
+        fun onItemClick(charterer: Charterer)
     }
 
     interface OnRemoveItem {
-        fun onItemRemoveClick(position: String)
+        fun onItemRemoveClick(charterer: Charterer)
     }
 
 }

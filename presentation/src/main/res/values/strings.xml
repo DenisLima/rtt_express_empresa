@@ -45,5 +45,8 @@
     <string name="loading_observation">Observação</string>
     <string name="loading_button_next">Próximo</string>
     <string name="loading_send_loadings">Enviar Carregamento</string>
+    <string name="loading_selecteds_header">Selecionados %1$s de %2$s</string>
+    <string name="loading_button_ok">OK</string>
+    <string name="loading_msg_confirm">Carregamento gerado com sucesso!</string>
 
 </resources>

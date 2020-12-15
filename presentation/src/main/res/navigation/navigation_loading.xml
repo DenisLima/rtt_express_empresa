@@ -18,5 +18,23 @@
         android:id="@+id/generateLoadingsFormFragment"
         android:name="com.android.presentation.features.loadings.generateloadings.form.GenerateLoadingsFormFragment"
         android:label="GenerateLoadingsFormFragment"
-        tools:layout="@layout/fragment_list_charterer"/>
+        tools:layout="@layout/fragment_list_charterer">
+        <action
+            android:id="@+id/action_generateLoadingsFormFragment_to_generateLoadingsConfirmFragment"
+            app:destination="@id/generateLoadingsConfirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/generateLoadingsConfirmFragment"
+        android:name="com.android.presentation.features.loadings.generateloadings.confirm.GenerateLoadingsConfirmFragment"
+        android:label="GenerateLoadingsConfirmFragment"
+        tools:layout="@layout/fragment_generate_loading_confirm">
+        <argument
+            android:name="listLoadingsOrders"
+            app:argType="string[]" />
+        <action
+            android:id="@+id/action_generateLoadingsConfirmFragment_to_generateLoadingsFragment"
+            app:destination="@id/generateLoadingsFragment"
+            app:popUpTo="@+id/generateLoadingsFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 </navigation>
